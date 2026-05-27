@@ -19,6 +19,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
@@ -37,13 +38,6 @@ import com.razorpay.PaymentResultWithDataListener;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-
 import dev.shreyaspatil.easyupipayment.EasyUpiPayment;
 import dev.shreyaspatil.easyupipayment.listener.PaymentStatusListener;
 import dev.shreyaspatil.easyupipayment.model.PaymentApp;
@@ -61,19 +55,10 @@ public class AddCoinActivity extends AppCompatActivity implements PaymentStatusL
     private MaterialToolbar mToolbar;
     private ProgressBar mProgressBar;
     private MaterialTextView mUpiIDTxt;
-    private PaymentApp mPayApp;
+    private PaymentApp mPayApp = PaymentApp.ALL; // Initialize with default value
     private RadioGroup mRadioGroup;
     private IntentFilter mIntentFilter;
     Utility utility;
-
-    private static final String IMB_CREATE_ORDER_URL = "https://secure-stage.imb.org.in/api/create-order";
-    private static final String IMB_CHECK_ORDER_STATUS_URL = "https://pay.imb.org.in/api/check-order-status";
-    private static final String IMB_USER_TOKEN = "ef225bf4b724db90ebc08815f35638e0";
-    private static final long IMB_POLL_INTERVAL_MS = 5000L;
-    private static final long IMB_POLL_TIMEOUT_MS = 60_000L;
-    private static final int IMB_ACTIVITY_REQUEST = 777;
-
-    private android.os.Handler imbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +95,25 @@ public class AddCoinActivity extends AppCompatActivity implements PaymentStatusL
             }
         });
 
-        mRadioGroup.setVisibility(View.GONE);
-        mPayApp = PaymentApp.ALL;
+        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.GPay:
+                        mPayApp = PaymentApp.GOOGLE_PAY;
+                        break;
+                    case R.id.phone_pe_btn:
+                        mPayApp = PaymentApp.PHONE_PE;
+                        break;
+                    case R.id.payTmBtn:
+                        mPayApp = PaymentApp.PAYTM;
+                        break;
+                    default:
+                        mPayApp = PaymentApp.ALL;
+                        break;
+                }
+            }
+        });
     }
 
     private void payDialog() {
@@ -245,9 +247,12 @@ public class AddCoinActivity extends AppCompatActivity implements PaymentStatusL
         startService(serviceIntent);
         mUpiIDTxt.setText(SharPrefClass.getAddAmountUpiId(this, SharPrefClass.KEY_ADD_COINS_BHIM_ID));
         Checkout.preload(getApplicationContext());
-
-        // imb handler if needed
-        imbHandler = new android.os.Handler();
+        
+            // Set first radio button as default
+            if (mRadioGroup.getCheckedRadioButtonId() == -1) {
+                mRadioGroup.check(R.id.GPay);
+                mPayApp = PaymentApp.GOOGLE_PAY;
+            }
     }
 
 
@@ -322,8 +327,12 @@ public class AddCoinActivity extends AppCompatActivity implements PaymentStatusL
             Toast.makeText(this, "Maximum allowed amount is ₹" + maxAllowed, Toast.LENGTH_LONG).show();
             return;
         }
+        if (mRadioGroup.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, "Please select a payment method", Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (YourService.isOnline(this)) {
-            createOrderOnImb(mString);
+            payDialog();
         } else
             Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
     }
@@ -359,144 +368,7 @@ public class AddCoinActivity extends AppCompatActivity implements PaymentStatusL
         }
     }
 
-    // ------------------- IMB: create order and start webview activity -------------------
-    private void createOrderOnImb(String amount) {
-        mProgressBar.setVisibility(View.VISIBLE);
-        // create unique merchant order id
-        String merchantOrderId = "IMB_TXN" + System.currentTimeMillis();
-        // Run network on background thread
-        new Thread(() -> {
-            try {
-                String charset = "UTF-8";
-                StringBuilder postData = new StringBuilder();
-                postData.append(URLEncoder.encode("customer_mobile", charset)).append("=")
-                        .append(URLEncoder.encode(SharPrefClass.getRegistrationObject(this, SharPrefClass.KEY_PHONE_NUMBER), charset));
-                postData.append("&").append(URLEncoder.encode("user_token", charset)).append("=")
-                        .append(URLEncoder.encode(IMB_USER_TOKEN, charset));
-                postData.append("&").append(URLEncoder.encode("amount", charset)).append("=")
-                        .append(URLEncoder.encode(amount, charset));
-                postData.append("&").append(URLEncoder.encode("order_id", charset)).append("=")
-                        .append(URLEncoder.encode(merchantOrderId, charset));
-                // Set redirect_url; IMB requires a redirect. Use pay.imb.org.in or your own domain if available.
-                postData.append("&").append(URLEncoder.encode("redirect_url", charset)).append("=")
-                        .append(URLEncoder.encode("http://wonder1club.click/succes.php", charset));
-                // remark1: email; remark2: additional info
-                String email = "userapk@gmail.com";
-                postData.append("&").append(URLEncoder.encode("remark1", charset)).append("=")
-                        .append(URLEncoder.encode(email, charset));
-                postData.append("&remark2=").append(URLEncoder.encode(
-                        SharPrefClass.getRegistrationObject(this, SharPrefClass.KEY_PHONE_NUMBER),
-                        charset
-                ));
 
-                byte[] postDataBytes = postData.toString().getBytes(charset);
 
-                URL url = new URL(IMB_CREATE_ORDER_URL);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("POST");
-                conn.setDoOutput(true);
-                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=" + charset);
-                conn.setRequestProperty("Accept", "application/json");
-                conn.setConnectTimeout(15000);
-                conn.setReadTimeout(15000);
 
-                try (OutputStream os = conn.getOutputStream()) {
-                    os.write(postDataBytes);
-                    os.flush();
-                }
-
-                int responseCode = conn.getResponseCode();
-                BufferedReader reader;
-                if (responseCode >= 200 && responseCode < 400) {
-                    reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                } else {
-                    reader = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-                }
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
-                }
-                reader.close();
-                conn.disconnect();
-
-                // parse response
-                org.json.JSONObject json = new org.json.JSONObject(response.toString());
-                boolean status = false;
-                if (json.has("status")) {
-                    Object sObj = json.get("status");
-                    if (sObj instanceof Boolean) status = (Boolean) sObj;
-                    else status = String.valueOf(sObj).equalsIgnoreCase("true");
-                }
-
-                if (status && json.has("result")) {
-                    org.json.JSONObject result = json.getJSONObject("result");
-                    String paymentUrl = result.optString("payment_url", null);
-                    String orderIdResp = result.optString("orderId", merchantOrderId);
-
-                    if (paymentUrl != null && paymentUrl.length() > 0) {
-                        final String fPaymentUrl = paymentUrl;
-                        final String fAmount = amount + ".0";
-                        final String fOrderId = merchantOrderId;
-                        runOnUiThread(() -> {
-                            mProgressBar.setVisibility(View.GONE);
-                            // start webview activity
-                            Intent intent = new Intent(AddCoinActivity.this, ImbPaymentActivity.class);
-                            intent.putExtra("payment_url", fPaymentUrl);
-                            intent.putExtra("amount", fAmount);
-                            intent.putExtra("order_id", fOrderId);
-                            startActivityForResult(intent, IMB_ACTIVITY_REQUEST);
-                        });
-                        return;
-                    }
-                }
-
-                // failure path
-                final String errMsg = json.optString("message", "IMB create order failed");
-                runOnUiThread(() -> {
-                    mProgressBar.setVisibility(View.GONE);
-                    Toast.makeText(AddCoinActivity.this, "IMB Create Order failed: " + errMsg, Toast.LENGTH_LONG).show();
-                });
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                runOnUiThread(() -> {
-                    mProgressBar.setVisibility(View.GONE);
-                    Toast.makeText(AddCoinActivity.this, "IMB Create Order exception: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                });
-            }
-        }).start();
-    }
-
-    // receive result from ImbPaymentActivity (webview)
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == IMB_ACTIVITY_REQUEST) {
-
-            if (resultCode == RESULT_OK && data != null) {
-
-                boolean success = data.getBooleanExtra("success", false);
-
-                if (success) {
-
-                    Toast.makeText(this, "Payment Successful 🎉", Toast.LENGTH_LONG).show();
-
-                    // ❗ webhook already credit kar raha hai
-                    // 👉 sirf wallet refresh kar
-
-                    new android.os.Handler().postDelayed(() -> {
-                        // call user_status API here
-                    }, 3000);
-
-                } else {
-                    Toast.makeText(this, "Payment Failed", Toast.LENGTH_SHORT).show();
-                }
-
-            } else {
-                Toast.makeText(this, "Payment Cancelled", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 }
