@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/adarkg"
+    tools:context=".sfdghj.UserInfoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/status_bar_height"
+            android:id="@+id/appbarLayout">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/alightg"
+                app:navigationIconTint="@color/white"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="MY PROFILE"
+                app:titleTextColor="@color/white"
+                app:contentInsetStartWithNavigation="0dp"/>
+        </com.google.android.material.appbar.AppBarLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dataConText"
+            android:text="@string/you_are_not_connected_to_internet"
+            android:textColor="@color/white"
+            android:background="@color/warn_red"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:elevation="1dp"/>
+
+        <ImageView
+            android:id="@+id/imageview1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/person"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone_num"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:fontFamily="@font/font3"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_gravity="center"
+            android:textColor="@color/btnTextColor"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="5dp"
+            android:inputType="number"
+            android:text="1234567890"
+            android:enabled="false"
+            android:lines="1"/>
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/button"
+            android:enabled="false"
+            android:fontFamily="@font/font3"
+            android:inputType="textPersonName|textCapWords"
+            android:lines="1"
+            android:padding="5dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="5dp"
+            android:textColor="@color/white" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_txt_email"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/button"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:hint="@string/enter_your_email"
+            android:fontFamily="@font/font3"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="5dp"
+            android:textColorHint="@color/white"
+            android:enabled="false"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:lines="1"
+            android:textStyle="bold"
+            android:inputType="textEmailAddress"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:cornerRadius="20dp"
+            android:text="EDIT"
+            android:fontFamily="@font/font2"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/alightg"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:paddingVertical="10dp"
+            android:onClick="editBtn"/>
+
+        <TextView
+            android:id="@+id/suBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/push"
+            android:layout_marginHorizontal="55dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:cornerRadius="0dp"
+            android:fontFamily="@font/font1"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:background="@drawable/button"
+            android:backgroundTint="@color/alightg"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:onClick="updatBtn"/>
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progressBar"
+        android:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="colorAccent">@color/matka_blue</item>
+        <item name="android:background">@drawable/rounded_corner_white</item>
+    </style>
+</resources>

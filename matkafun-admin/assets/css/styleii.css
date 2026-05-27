@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+.contain-cd{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.contain-cd .form-cd{
+    background: #fff;
+    padding: 50px 200px 50px 200px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.contain-cd .form-cd form .form-control-cd{
+    height: 40px;
+    font-size: 15px;
+}
+.contain-cd .form-cd form .forget-pass{
+    margin: -15px 0 15px 0;
+}
+.contain-cd .form-cd form .forget-pass a{
+   font-size: 15px;
+}
+.contain-cd .form-cd form .button{
+    background: #6665ee;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.contain-cd .form-cd form .button:hover{
+    background: #5757d1;
+}
+.contain-cd .form-cd form .link{
+    padding: 5px 0;
+}
+.contain-cd .form-cd form .link a{
+    color: #6665ee;
+}
+.contain-cd .login-form form p{
+    font-size: 14px;
+}
+.contain-cd .row-cd .alert{
+    font-size: 14px;
+}

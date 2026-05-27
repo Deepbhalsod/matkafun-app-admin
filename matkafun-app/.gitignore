@@ -1,0 +1,49 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+# Gradle
+.gradle/
+build/
+*/build/
+
+# Android
+local.properties
+*.apk
+*.aab
+
+# Debug / Release
+debug/
+release/
+app/debug/
+app/release/
+app/src/debug/
+app/src/release/
+app/src/androidTest/
+app/src/androidTestDebug/
+
+# Studio
+.idea/
+*.iml
+
+# Native
+.externalNativeBuild/
+.cxx/
+
+# Logs
+*.log
+
+# Keystore
+*.jks
+*.keystore

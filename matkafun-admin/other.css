@@ -1,0 +1,312 @@
+@import 'variables.css';
+
+header {
+	background-color: #ffffff;
+	padding: 0.5pc;
+	border-radius: 1.5pc;
+	display: flex;
+	padding-right: 2pc;
+	padding-left: 2pc;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 3px 9px 43px -13px #12112559;
+}
+
+.boxsCount {
+	display: flex;
+	align-items: stretch;
+	flex-wrap: wrap;
+	width: 45pc;
+}
+
+.box a {
+	display: flex;
+	gap: 1pc;
+	flex-direction: column;
+}
+
+.box img {
+	width: 2pc;
+}
+
+.box .top {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	gap: 2pc;
+}
+
+.box h3 {
+	color: var(--main-col-);
+}
+
+.box p {
+	font-weight: 500;
+	font-size: 1.4rem;
+	color: var(--main-drk) !important;
+	text-align: center;
+}
+
+.form-control-me {
+	height: auto;
+	border: none;
+	background: #f2f2fd;
+	color: #3b3f5c;
+	font-size: 14px;
+	letter-spacing: 1px;
+	padding: 0.4rem 1.3rem;
+	border-radius: 6px;
+}
+
+.btnGet {
+	background-color: var(--main-col-);
+	color: #fff;
+	padding: 10px 15px 10px 15px;
+	border-radius: 0.5pc;
+	border: none;
+	transition: all 0.2s;
+}
+
+.btnClear {
+	background-color: #f05959;
+	padding: 10px 15px 10px 15px;
+	border-radius: 0.5pc;
+	border: none;
+	transition: all 0.2s;
+}
+
+.btnClear a {
+	color: #fff !important;
+}
+
+button:hover {
+	transition: all 0.2s;
+	filter: drop-shadow(3px 3px 15px #6f6af881);
+}
+
+.btnClear:hover {
+	transition: all 0.2s;
+	filter: drop-shadow(3px 3px 15px #f86a6a81);
+}
+
+/* container */
+
+.Container {
+	margin-top: 2pc;
+	display: flex;
+	gap: 2pc;
+	flex-direction: column;
+}
+
+.container .boxsCount {
+	display: flex;
+}
+
+.a {
+	padding-left: 1pc;
+	font-size: 1.2rem;
+	color: #fff;
+}
+
+.nav-item {
+	list-style: none;
+}
+
+/* container */
+
+form#getankForm {
+	display: flex;
+	flex-direction: column;
+	gap: 1pc;
+	padding-left: 2pc;
+}
+
+.bidgames {
+	display: flex;
+	align-items: center;
+	gap: 3pc;
+}
+
+.bidgames label {
+	color: var(--main-drk);
+}
+
+.bidgames .btns {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1pc;
+}
+
+div#row_bid {
+	padding-left: 2pc;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.box_bids {
+	border-radius: 1pc;
+	background: #ffffff;
+	display: flex;
+	flex-direction: column;
+	padding: 2pc;
+	margin: 1pc;
+	border-radius: 0.5pc;
+	box-shadow: 4px 9px 49px -10px #2a223f18;
+}
+
+.box_bids p {
+	font-size: 1rem;
+	font-weight: 500;
+	color: var(--main-drk) !important;
+}
+
+.box_bids hr {
+	width: 14pc;
+}
+
+div#BidReport {
+	display: flex;
+	flex-direction: column;
+	gap: 3pc;
+	padding-left: 2pc;
+	box-shadow: 4px 9px 49px -10px #2a223f18;
+	padding: 2pc;
+	border: solid 1px #fff;
+}
+
+.reHis {
+	display: flex;
+	gap: 2pc;
+	margin-bottom: 4pc;
+	flex-wrap: wrap;
+}
+
+form#dashform {
+	gap: 2pc;
+	display: flex;
+	align-items: center;
+}
+
+.Btns {
+	display: flex;
+	align-items: center;
+	gap: 1pc;
+}
+
+.selectDiv {
+	gap: 1pc;
+	display: flex;
+	align-items: center;
+}
+
+form#dashform label {
+	color: var(--main-drk);
+	margin-bottom: 0rem;
+}
+
+.datediv {
+	display: flex;
+	align-items: center;
+	gap: 1pc;
+}
+
+#cancel-row {
+	height: 25pc;
+	overflow: auto;
+	gap: 2pc;
+	padding-left: 2pc;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 0.5pc;
+	padding: 2pc;
+	box-shadow: 4px 9px 49px -10px #2a223f18;
+}
+
+#cancel-row::-webkit-scrollbar {
+	background-color: transparent;
+	width: 0.4pc;
+}
+
+#cancel-row::-webkit-scrollbar-thumb {
+	background-color: #cecece;
+	border-radius: 1pc;
+}
+
+#cancel-row form {
+	display: flex;
+	flex-direction: column;
+	gap: 4pc;
+}
+
+.userList {
+	display: flex;
+	margin: 2pc;
+	padding: 2pc;
+	box-shadow: 4px 9px 49px -10px #2a223f27;
+	border-radius: 0.5pc;
+}
+
+/* #multi-column-ordering_filter {
+} */
+
+#multi-column-ordering_filter label {
+	display: flex;
+	flex-direction: column;
+	gap: 1pc;
+}
+
+#multi-column-ordering_filter input {
+	height: auto;
+	border: none;
+	background: #f2f2fd;
+	color: #3b3f5c;
+	font-size: 14px;
+	letter-spacing: 1px;
+	padding: 0.4rem 1.3rem;
+	border-radius: 6px;
+}
+
+#multi-column-ordering_length select {
+	height: auto;
+	border: none;
+	background: #f2f2fd;
+	color: #3b3f5c;
+	font-size: 14px;
+	letter-spacing: 1px;
+	letter-spacing: 1px;
+	padding: 0.4rem 1.3rem;
+	border-radius: 6px;
+}
+
+.row_sh {
+	display: flex;
+	align-items: baseline;
+	justify-content: flex-end;
+}
+
+.table-responsive::-webkit-scrollbar {
+	background-color: transparent;
+	height: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+	background-color: #cecece;
+	border-radius: 1pc;
+}
+
+.row {
+	display: block;
+}
+
+
+@media only screen and (max-width: 409px) {
+
+	.userList {
+		margin: 0.2pc;
+		padding: 0.7pc;
+	}
+}

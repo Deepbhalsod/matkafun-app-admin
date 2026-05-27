@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ndroid="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:padding="1px">
+
+
+    <LinearLayout
+        android:id="@+id/topLyt"
+        android:layout_width="match_parent"
+        android:background="@color/alightg"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLayout"
+            android:layout_width="match_parent"
+            android:paddingTop="@dimen/status_bar_height"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/alightg"
+                android:contentInsetStart="0dp"
+                android:visibility="visible"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:title="Notifications"
+                app:navigationIconTint="@color/white"
+                app:contentInsetStartWithNavigation="0dp"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:titleTextColor="@color/white" />
+        </com.google.android.material.appbar.AppBarLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:paddingBottom="10dp"
+        android:clipToPadding="false"
+        android:background="#F5F5F5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

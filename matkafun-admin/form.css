@@ -1,0 +1,94 @@
+@import 'variables.css';
+
+.form_content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	gap: 2pc;
+}
+
+.Login_box {
+	padding: 3pc;
+	display: flex;
+	flex-direction: column;
+	gap: 3pc;
+	align-items: center;
+	border-radius: 1pc;
+	box-shadow: 6px 6px 80px -25px #1c173130;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1pc;
+	align-items: center;
+	justify-content: center;
+}
+
+input#username {
+	padding: 14px 30px 14px 30px;
+	background: #f2f2fd;
+	border: none;
+	border-radius: 0.4pc;
+}
+
+input#password {
+	padding: 14px 30px 14px 30px;
+	background: #f2f2fd;
+	border: none;
+	border-radius: 0.4pc;
+}
+
+input::placeholder {
+	color: var(--main-drk);
+	opacity: 50%;
+}
+
+button {
+	background-color: var(--main-col-);
+	color: #fff;
+	padding: 14px 30px 14px 30px;
+	border-radius: 0.5pc;
+	border: none;
+	transition: all 0.2s;
+}
+
+button:hover {
+	transition: all 0.2s;
+	filter: drop-shadow(3px 3px 15px #6f6af881);
+}
+
+.field-wrapper.toggle-pass {
+	display: flex;
+	gap: 5pc;
+	align-items: center;
+}
+
+.field-wrapper.toggle-pass p {
+	color: var(--main-drk) !important;
+}
+
+@media only screen and (max-width: 410px) {
+	input#username {
+		width: 14pc;
+	}
+
+	input#password {
+		width: 14pc;
+	}
+
+	.text_center span {
+		font-size: 1.5rem;
+	}
+
+	.Login_box {
+		padding: 1.5pc;
+		margin: 1pc;
+	}
+
+	form .field-wrapper button {
+		padding: 10px 20px 10px 20px;
+	}
+}

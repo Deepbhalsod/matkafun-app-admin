@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/adarkg"
+    tools:context=".sfdghj.WonHistoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLayout"
+            android:layout_width="match_parent"
+            android:paddingTop="@dimen/status_bar_height"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/alightg"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:contentInsetStartWithNavigation="0dp"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="WIN HISTORY"
+                app:navigationIconTint="@color/white"
+                app:titleTextColor="@color/white" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dataConText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/warn_red"
+            android:elevation="1dp"
+            android:padding="5dp"
+            android:text="@string/you_are_not_connected_to_internet"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_ref_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/won_history_layout" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/emptyImage"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="100dp"
+                    android:src="@drawable/ic_win_history_icon_2_01"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_no_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="No Bids Found"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

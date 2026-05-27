@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="com.onewonderclub.market.activityclass.ApplicationClass"
+        android:allowBackup="true"
+        android:forceDarkAllowed="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SattaMatka"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:node="merge"
+        tools:targetApi="m">
+
+        <meta-data android:name="com.onesignal.NotificationServiceExtension"
+            android:value="com.onesignal.OneSignalNotificationExtenderService" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.SLTurnamentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.NotificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.ImbPaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.PlayingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name="com.onewonderclub.appm.appm.activityclass.SPDPActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.SingleDigitBulkActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.SinglePannaBulkActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.DoublePannaBulkActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.TurnamentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.UserHelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.GameValuesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.WonHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.UserInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.TableActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.UPIDActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.BActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.PMethodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.TakeOutActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.AddCoinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.SPinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.NewPassActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.ForPassActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.VerifyingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.RegistrationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.SignInActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.WelcomeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.onewonderclub.market.activityclass.DashboardActivity"
+            android:forceDarkAllowed="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.TCoinActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.SLBPActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.WebSiteActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.onewonderclub.market.activityclass.QuizActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.onewonderclub.market.activityclass.OTPActivity" />
+        <activity android:name="com.onewonderclub.market.activityclass.DesawarBPActivity" />
+        <activity android:name="com.onewonderclub.market.activityclass.DesawarTurnaActivity" />
+        <activity android:name="com.onewonderclub.market.activityclass.DisawarActivity" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.PassbookActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.onewonderclub.market.activityclass.LanguageActivity"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.onewonderclub.market.shareprefclass.YourService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="@string/razor_pay_key" />
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+    </application>
+
+</manifest>

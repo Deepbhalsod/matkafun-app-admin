@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".sfdghj.OTPActivity">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dataConText"
+        android:text="@string/you_are_not_connected_to_internet"
+        android:textColor="@color/black"
+        android:background="@color/warn_red"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:elevation="1dp"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/imageview1"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/appicon"
+                android:scaleType="fitCenter" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtv_activity"
+                android:layout_width="252dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/font2"
+                android:text="OTP VERIFICATION"
+                android:textColor="@color/alcolor"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_num"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font3"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/edittext_outline"
+                android:drawableStart="@drawable/ic_phone_icon_01"
+                android:drawablePadding="12dp"
+                android:drawableTint="@color/alcolor"
+                android:hint="@string/enter_mobile_number"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="12dp"
+                android:singleLine="true"
+                android:enabled="false"
+                android:textColor="@color/alcolor"
+                android:textColorHint="@color/alcolor"
+                android:textCursorDrawable="@drawable/ic_cursor"
+                android:textStyle="bold"
+                tools:targetApi="m" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/edittext_outline">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/in_pc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:gravity="center"
+                    android:fontFamily="@font/font3"
+                    android:hint="Enter 4 digit OTP"
+                    android:inputType="numberSigned"
+                    android:text="1234"
+                    android:maxLength="4"
+                    android:paddingHorizontal="30dp"
+                    android:paddingVertical="12dp"
+                    android:singleLine="true"
+                    android:textColor="@color/alcolor"
+                    android:textColorHint="@color/alcolor"
+                    android:textCursorDrawable="@drawable/ic_cursor"
+                    android:textStyle="bold"
+                    tools:targetApi="m" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/pass_tpc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="20dp"
+                    android:onClick="passTogglePin"
+                    android:src="@drawable/ic_baseline_visibility_off_24"
+                    android:tint="@color/alcolor" />
+            </RelativeLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:visibility="gone"
+                android:onClick="resendOtp"
+                android:textSize="14sp"
+                android:fontFamily="@font/font2"
+                android:padding="2dp"
+                android:textColor="@color/btnTextColor"
+                android:text="RESEND OTP" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/alightg"
+                android:onClick="verifyOtp"
+                android:paddingVertical="12dp"
+                android:text="SUBMIT"
+                android:fontFamily="@font/font2"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/font2"
+                android:textAlignment="center"
+                android:visibility="visible"
+                android:text="Important Note: Click on the Submit button to complete registration."
+                android:textColor="@color/alcolor"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtinfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:visibility="visible"
+                android:fontFamily="@font/font2"
+                android:text="महत्वपूर्ण सूचना: पंजीकरण पूरा करने के लिएसबमिट बटन पर क्लिक करें।"
+                android:textColor="@color/alcolor"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/black"
+        android:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+{
+  "latest_version": "1.0",
+  "min_supported_version": "1.0",
+  "is_update_forced": true, 
+  "update_url": "",
+  "update_message": "New features and bug fixes available! Please update to the latest version."
+}

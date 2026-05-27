@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".dfghjk.DashboardFragment">
+    <FrameLayout
+        android:id="@+id/viewPagerFrame"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="1dp">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="1dp"
+            android:background="@color/colorb"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/stripLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        android:visibility="visible"
+        android:background="#FFFFFF"
+        android:paddingVertical="4dp"
+        android:layout_below="@id/viewPagerFrame">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_marque"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font2"
+            android:layout_gravity="center"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:visibility="visible"/>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/phoneLyt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stripLayout"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:gravity="center_vertical"
+        android:elevation="1dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/user_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:layout_toStartOf="@id/whatsappBtn"
+            app:cardBackgroundColor="@color/colorBtn"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingVertical="3dp"
+                android:paddingHorizontal="10dp"
+                android:layout_margin="2dp"
+                android:text="Hi, Developer"
+                android:textSize="20sp"
+                android:drawablePadding="8dp"
+                android:textColor="@color/teal_200"
+                android:drawableStart="@drawable/profile_icon_20"/>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/whatsappBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@color/colorBtn"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/callBtn"
+            android:layout_marginHorizontal="5dp">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/whats_app_num"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:src="@drawable/ic_whatsappicon"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/callBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@color/colorBtn"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="5dp">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/call_num"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_call_wifi_icon_01"/>
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/aaa"
+        android:layout_below="@id/phoneLyt"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <RelativeLayout
+                android:id="@+id/addpoints_item"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_pill_light_yellow"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:id="@+id/a3_add"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/wallet123" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/a3_add"
+                    android:fontFamily="@font/font2"
+                    android:text="@string/add_money"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/withdraw_op"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_pill_light_yellow"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:id="@+id/a3op_with"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/withdraw123" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/a3op_with"
+                    android:fontFamily="@font/font2"
+                    android:text="@string/withdraw"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <RelativeLayout
+                android:id="@+id/whatsapp_item"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_pill_whatsapp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:id="@+id/a2_wa"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/whatsapp_logo"
+                    app:tint="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/whats_app_n"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/a2_wa"
+                    android:fontFamily="@font/font2"
+                    android:text="Support"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/telegram_item"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:visibility="visible"
+                android:background="@drawable/button_pill_telegram"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:id="@+id/a1_tg"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/telegram"
+                    app:tint="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/a1_tg"
+                    android:fontFamily="@font/font2"
+                    android:text="@string/telegram"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+        
+        <!-- Hide other layouts correctly -->
+        <RelativeLayout
+            android:id="@+id/starline_item"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+            
+        <RelativeLayout
+            android:id="@+id/galli_item"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@id/aaa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginHorizontal="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:id="@+id/dpboss_rl"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:visibility="gone"
+                    android:layout_marginVertical="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/navy_blue"
+                    android:background="@drawable/card_background"
+                    android:gravity="center_vertical"
+                    >
+
+                    <!-- <ImageView
+                        android:id="@+id/a4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:padding="2dp"
+                        android:src="@drawable/dpbosss" /> -->
+                </RelativeLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <!-- Recent Winners Auto-Scrolling Box -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/recentWinnersCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:layout_marginHorizontal="8dp"
+                app:cardBackgroundColor="#121D38"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#2F365D"
+                app:strokeWidth="1dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="12dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="16dp"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:id="@+id/ivTrophy"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_emoji_events_24"
+                            app:tint="#FFC107" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/ivTrophy"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="8dp"
+                            android:text="RECENT WINNERS"
+                            android:textColor="#7A8BBD"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.05"/>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            app:cardBackgroundColor="#1B264B"
+                            app:cardCornerRadius="12dp"
+                            app:strokeColor="#303B6D"
+                            app:strokeWidth="1dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="4dp">
+                                <View
+                                    android:layout_width="6dp"
+                                    android:layout_height="6dp"
+                                    android:background="@drawable/circle_blue"
+                                    android:backgroundTint="#4E84F3"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="4dp"
+                                    android:text="LIVE"
+                                    android:textColor="#5682F3"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+                    </RelativeLayout>
+
+                    <!-- Limit height so it scrolls within itself instead of blowing up NestedScrollView -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recentWinnersRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        android:clipToPadding="false"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progressBar"
+        android:visibility="gone"/>
+
+</RelativeLayout>

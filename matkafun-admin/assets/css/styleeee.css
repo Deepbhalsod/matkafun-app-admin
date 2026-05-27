@@ -1,0 +1,124 @@
+body{
+    margin-top:2px;
+    color: #1a202c;
+    text-align: left;
+    /* background-color: #e2e8f0;     */
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-cd {
+    position: relative;
+    flex-direction: column;
+    padding-left: 100px;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body-profile {
+    flex: 1 1 auto;
+    /* min-height: 1px; */
+    padding: 1rem;
+    height: 67vh;
+}
+
+.card-body-pass {
+    flex: 1 1 auto;
+    /* min-height: 1px; */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 67vh;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+#forgot_pass:not(.active) {
+    transform: rotateY(180deg);
+    opacity: 0;
+    z-index: -1;
+}
+
+#forgot_pass input[type=submit] {
+    color: #fff;
+    background-color: #777;
+    border: 1px solid #000;
+    padding: 0.1em 0.5em;
+}
+  
+#forgot_pass input[type=submit]:focus {
+    background-color: #333;
+}
+
+#forgot_pass {
+    float: centre;
+}
+
+.form-gap {
+    padding-top:  70px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom:70px;
+}
+
+.separator {
+    border-right: 1px solid #dfdfe0; 
+}
+
+.icon-btn-save {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.input-group-con {
+    margin-bottom:10px; 
+}
+
+.btn-save-label {
+    position: relative;
+    left: -12px;
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(0,0,0,0.15);
+    border-radius: 3px 0 0 3px;
+}

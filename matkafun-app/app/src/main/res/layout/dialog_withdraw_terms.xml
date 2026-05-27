@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/rounded_corner_white">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Terms &amp; Conditions"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="15dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/minWithdrawText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\u2022 Minimum Withdrawal ₹500/-"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/font2"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/maxWithdrawText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\u2022 Maximum Withdrawal ₹25,00,000/- per day"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/font2"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\u2022 Processing Time ⏳ 20 – 25 min (depends on bank server &amp; working days)"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/font2"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/withdrawTimingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\u2022 Withdrawal Timing ⏰ 11:00 AM – 10:00 PM"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/font2"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\u2022 ✔ Availability: Withdrawals available on all days of the week"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/font2"
+                android:layout_marginBottom="8dp"/>
+            
+             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\u2022 🏦 Bank Details: Please ensure your bank details are correct. Wrong details will be the user’s responsibility"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/font2"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\u2022 ⚠ Important Notice: Due to bank server issues, public holidays, or unforeseen circumstances, withdrawal processing may take extra time"
+                android:textColor="@color/warn_red"
+                android:textSize="16sp"
+                android:fontFamily="@font/font2"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAccept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ACCEPT"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/primary_color"
+        app:cornerRadius="8dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"/>
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="25dp"
+    android:background="@color/alightg"
+    android:gravity="center_horizontal"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/userDName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/adarkg"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/mobile_nav_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/adarkg"/>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/notiSwitchBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/adarkg"
+        android:paddingStart="8dp"
+        android:paddingEnd="5dp"
+        android:checked="true"
+        android:visibility="gone"
+        android:background="@drawable/dark_border"
+        android:text="App Notification"/>
+
+
+</LinearLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/appicon" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Select Language"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_above="@id/btnContinue"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:id="@+id/languageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Items will be added programmatically or define basic ones here -->
+            <!-- English -->
+            <include layout="@layout/item_language" android:id="@+id/lang_en" />
+            <include layout="@layout/item_language" android:id="@+id/lang_hi" />
+            <include layout="@layout/item_language" android:id="@+id/lang_gu" />
+            <include layout="@layout/item_language" android:id="@+id/lang_mr" />
+            <include layout="@layout/item_language" android:id="@+id/lang_ta" />
+            <include layout="@layout/item_language" android:id="@+id/lang_te" />
+            <include layout="@layout/item_language" android:id="@+id/lang_kn" />
+            <include layout="@layout/item_language" android:id="@+id/lang_ml" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="Continue"
+        android:backgroundTint="@color/primary_color"
+        app:cornerRadius="10dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

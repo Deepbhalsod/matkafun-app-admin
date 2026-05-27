@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#FFFFFF"
+    tools:context=".sfdghj.TurnamentActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/status_bar_height"
+        android:id="@+id/appbarLayout">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/white"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            app:titleTextColor="@color/black"
+            app:navigationIconTint="@color/btnColor"
+            app:contentInsetStartWithNavigation="0dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dataConText"
+        android:text="@string/you_are_not_connected_to_internet"
+        android:textColor="@color/white"
+        android:background="@color/warn_red"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:layout_below="@id/appbarLayout"
+        android:elevation="1dp"/>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dataConText">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="10dp">
+            
+            <!-- Single Digit & Bulk -->
+            
+                <androidx.cardview.widget.CardView android:id="@+id/singleD" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="singleDigit" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_circle_icon" android:backgroundTint="@color/icon_purple_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_circle_icon" app:tint="@color/icon_purple" />
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/singledigit1"
+                                app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_purple" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Single Digit" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:id="@+id/singleDb" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="singleDigitBulk" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_circle_icon" android:backgroundTint="@color/icon_purple_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_circle_icon" app:tint="@color/icon_purple" />
+                            <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/singledigit1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_purple" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Single Digit Bulk" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            <!-- Jodi Digit & Bulk -->
+            
+                <androidx.cardview.widget.CardView android:id="@+id/jodi_d" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="jodiDigit" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_rounded_square_large" android:backgroundTint="@color/icon_teal_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_rounded_square_large" app:tint="@color/icon_teal" />
+                            <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/jodi1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_teal" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jodi Digit" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:id="@+id/jodi_db" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="jodiDigit" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_rounded_square_large" android:backgroundTint="@color/icon_teal_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_rounded_square_large" app:tint="@color/icon_teal" />
+                            <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/jodi1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_teal" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jodi Digit Bulk" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            <!-- Single Pana & Bulk -->
+            
+                <androidx.cardview.widget.CardView android:id="@+id/single_p" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="singlePana" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_rounded_square_large" android:backgroundTint="@color/icon_green_shadow" android:scaleX="1.3" android:scaleY="1.3" android:rotation="45" />
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_rounded_square_large" app:tint="@color/icon_green" android:rotation="45" />
+
+                            <ImageView
+                                android:layout_width="31dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/singlepana1"
+                                app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_green" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Single Pana" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:id="@+id/single_pb" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="singlePanaBulk" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_rounded_square_large" android:backgroundTint="@color/icon_green_shadow" android:scaleX="1.3" android:scaleY="1.3" android:rotation="45" />
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_rounded_square_large" app:tint="@color/icon_green" android:rotation="45" />
+                            <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/singlepana1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_green" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Single Pana Bulk" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            <!-- Double Pana & Bulk -->
+            
+                <androidx.cardview.widget.CardView android:id="@+id/doP" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="doublePana" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_leaf" android:backgroundTint="@color/icon_purple_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_leaf" app:tint="@color/icon_purple" />
+                            <ImageView android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="center" android:src="@drawable/doublepana1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_purple" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Double Pana" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:id="@+id/doPb" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="doublePannaBulk" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_leaf" android:backgroundTint="@color/icon_purple_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_leaf" app:tint="@color/icon_purple" />
+                            <ImageView android:layout_width="80dp" android:layout_height="80dp" android:layout_gravity="center" android:src="@drawable/doublepana1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_purple" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Double Pana Bulk" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            <!-- Triple Pana & Half Sangam -->
+            
+                <androidx.cardview.widget.CardView android:id="@+id/tri_p" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="triplePana" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_octagon" android:backgroundTint="@color/icon_orange_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_octagon" app:tint="@color/icon_orange" />
+                            <ImageView android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:src="@drawable/triplepana1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_orange" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Triple Pana" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:id="@+id/half_s" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="halfSangam" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_arch" android:backgroundTint="@color/icon_pink_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_arch" app:tint="@color/icon_pink" />
+                            <ImageView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:src="@drawable/sangam1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_pink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Half Sangam" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            <!-- Full Sangam & SP DP TP -->
+            
+                <androidx.cardview.widget.CardView android:id="@+id/full_s" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="fullSangam" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_arch" android:backgroundTint="@color/icon_pink_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_arch" app:tint="@color/icon_pink" />
+                            <ImageView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center" android:src="@drawable/sangam1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_pink" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Full Sangam" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:id="@+id/autoDigitsPana" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="spDpTp" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_rounded_square_large" android:backgroundTint="@color/icon_green_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_rounded_square_large" app:tint="@color/icon_green" />
+                            <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/spdptp1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_green" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SP DP TP" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            <!-- SP Motor & DP Motor -->
+            
+                <androidx.cardview.widget.CardView android:id="@+id/autoDigitsPanaa" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="spMotor" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_octagon" android:backgroundTint="@color/icon_orange_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_octagon" app:tint="@color/icon_orange" />
+                            <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/motor1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_orange" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SP Motor" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:id="@+id/autoDigitsPanab" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_gravity="fill_horizontal" android:layout_margin="8dp" android:onClick="dpMotor" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                        <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                            <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_octagon" android:backgroundTint="@color/icon_orange_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_octagon" app:tint="@color/icon_orange" />
+                            <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/motor1" app:tint="@color/white" />
+                        </FrameLayout>
+                        <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_orange" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DP Motor" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            <!-- Hidden/Bulk options -->
+            <androidx.cardview.widget.CardView android:id="@+id/half_sb" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="8dp" android:onClick="halfSangam" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground" android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                    <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                        <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_arch" android:backgroundTint="@color/icon_pink_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_arch" app:tint="@color/icon_pink" />
+                        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/sangam" app:tint="@color/white" />
+                    </FrameLayout>
+                    <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_pink" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Half Sangam Bulk" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView android:id="@+id/full_sb" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="8dp" android:onClick="fullSangam" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground" android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                    <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                        <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_arch" android:backgroundTint="@color/icon_pink_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_arch" app:tint="@color/icon_pink" />
+                        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/sangam" app:tint="@color/white" />
+                    </FrameLayout>
+                    <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_pink" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Full Sangam Bulk" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView android:id="@+id/autoDigitsPanac" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="8dp" android:onClick="autoDigitPanac" app:cardCornerRadius="16dp" app:cardElevation="2dp" android:foreground="?attr/selectableItemBackground" android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="16dp">
+                    <FrameLayout android:layout_width="65dp" android:layout_height="65dp">
+                        <View android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@drawable/shape_rounded_square_large" android:backgroundTint="@color/icon_green_shadow" android:scaleX="1.3" android:scaleY="1.3"/>
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/shape_rounded_square_large" app:tint="@color/icon_green" />
+                        <ImageView android:layout_width="32dp" android:layout_height="32dp" android:layout_gravity="center" android:src="@drawable/sp" app:tint="@color/white" />
+                    </FrameLayout>
+                    <View android:layout_width="35dp" android:layout_height="3dp" android:layout_marginTop="12dp" android:background="@drawable/icon_separator" android:backgroundTint="@color/icon_green" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Auto Digit" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/black" android:layout_marginTop="8dp" android:gravity="center" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progressBar"
+        android:visibility="gone"/>
+
+</RelativeLayout>

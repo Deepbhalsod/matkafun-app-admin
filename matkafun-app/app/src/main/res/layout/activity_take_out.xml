@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/adarkg"
+    tools:context=".sfdghj.TakeOutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLayout"
+            android:layout_width="match_parent"
+            android:paddingTop="@dimen/status_bar_height"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/alightg"
+                android:contentInsetStart="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:menu="@menu/menu_purse"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="@string/withdraw_points"
+                app:navigationIconTint="@color/white"
+                app:titleTextColor="@color/white">
+
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dataConText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/warn_red"
+            android:elevation="1dp"
+            android:padding="5dp"
+            android:text="@string/you_are_not_connected_to_internet"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/alightg"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/primary_color"
+                    android:fontFamily="@font/font3"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="@string/wait_30_minute_after_request"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <!-- STEP 1: Payment Method Selector Tiles -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:text="Select Withdrawal Method"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"/>
+
+                <LinearLayout
+                    android:id="@+id/payMethodTiles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <!-- Bank -->
+                    <LinearLayout
+                        android:id="@+id/tileBankDetails"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginHorizontal="6dp"
+                        android:background="@drawable/edittext_outline"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/point_bank"
+                            android:scaleType="fitCenter"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Bank"
+                            android:textColor="@color/alcolor"
+                            android:textSize="10sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- PhonePe -->
+                    <LinearLayout
+                        android:id="@+id/tilePhonePe"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginHorizontal="6dp"
+                        android:background="@drawable/edittext_outline"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/point_phonepe"
+                            android:scaleType="fitCenter"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="PhonePe"
+                            android:textColor="@color/alcolor"
+                            android:textSize="10sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- Google Pay -->
+                    <LinearLayout
+                        android:id="@+id/tileGooglePay"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginHorizontal="6dp"
+                        android:background="@drawable/edittext_outline"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/point_google_pay"
+                            android:scaleType="fitCenter"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="GPay"
+                            android:textColor="@color/alcolor"
+                            android:textSize="10sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- PayTM -->
+                    <LinearLayout
+                        android:id="@+id/tilePayTM"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginHorizontal="6dp"
+                        android:background="@drawable/edittext_outline"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/point_paytm"
+                            android:scaleType="fitCenter"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="PayTM"
+                            android:textColor="@color/alcolor"
+                            android:textSize="10sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- STEP 2: Selected method detail info (shown after tile tap) -->
+                <LinearLayout
+                    android:id="@+id/selectedMethodInfoRow"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/edittext_outline"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+                    android:visibility="gone">
+                    <TextView
+                        android:id="@+id/tvSelectedMethodLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/alcolor"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/tvSelectedMethodValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_color"
+                        android:textSize="13sp"
+                        android:maxLines="1"
+                        android:ellipsize="end"/>
+                </LinearLayout>
+
+                <!-- Hidden real method tracker (keeps existing logic working) -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/selectPayMethod"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    android:text="@string/select_withdraw_method" />
+
+                <!-- STEP 3: Withdraw Amount Input -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputWithdrawPoints"
+                    android:layout_width="270dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/font3"
+                    android:background="@drawable/edittext_outline"
+                    android:hint="@string/withdraw_coins"
+                    android:inputType="number"
+                    android:maxLength="9"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="10dp"
+                    android:textColorHint="@color/alcolor"
+                    android:singleLine="true"
+                    android:textColor="@color/alcolor" />
+
+                <TextView
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="16dp"
+                    android:background="@drawable/buttonw"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textSize="16sp"
+                    android:backgroundTint="@color/white"
+                    android:onClick="btnWithdCoins"
+                    android:paddingHorizontal="16dp"
+                    android:fontFamily="@font/font2"
+                    android:paddingVertical="8dp"
+                    android:text="@string/push"
+                    android:textColor="@color/black"
+                    tools:ignore="UsingOnClickInXml" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/withdrawtimetxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/btnTextColor"
+                    android:visibility="gone"
+                    android:fontFamily="@font/font3"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="@string/withdraw_open_time_info"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_ref_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/emptyImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginVertical="100dp"
+                    android:src="@drawable/ic_win_history_icon_2_01"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+            </RelativeLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Notification icon (left of wallet) -->
+    <item
+        android:id="@+id/notification"
+        android:title="@string/app_name"
+        android:icon="@drawable/ic_notification_white"
+        app:showAsAction="ifRoom"
+        android:visible="true" />
+
+    <!-- Wallet (Vault) -->
+    <item
+        android:id="@+id/purse"
+        android:title="@string/vault"
+        android:icon="@drawable/wallet"
+        android:iconTint="#FFFFFF"
+        app:showAsAction="ifRoom"
+        android:visible="true" />
+
+    <!-- Hidden Coins -->
+    <item
+        android:id="@+id/coins"
+        app:showAsAction="always"
+        android:visible="false" />
+
+</menu>

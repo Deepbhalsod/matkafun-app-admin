@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_my_bids"
+        android:icon="@drawable/baseline_history_24"
+        android:title="@string/my_bids" />
+
+    <item
+        android:id="@+id/nav_game_rates"
+        android:icon="@drawable/baseline_videogame_asset_24"
+        android:title="@string/rates" />
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@android:color/transparent"
+        android:title=""
+        android:enabled="false" />
+
+    <item
+        android:id="@+id/nav_funds"
+        android:icon="@drawable/ic_wallet"
+        android:title="@string/funds" />
+
+    <item
+        android:id="@+id/nav_chart"
+        android:icon="@drawable/baseline_candlestick_chart_24"
+        android:title="@string/chart" />
+
+    <!-- <item
+        android:id="@+id/nav_telegram"
+        android:icon="@drawable/telegram_logo"
+        android:title="Telegram" /> -->
+</menu>

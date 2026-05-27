@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Top-Left Curve Background -->
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/bg_corner_curve"
+            android:scaleType="fitXY" />
+
+        <!-- Chart Image Left Background -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/chartTable"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/chart_icon1"
+            android:scaleType="fitStart" />
+
+        <!-- Top Section (Name, Result, Status) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/top_section"
+            android:padding="12dp">
+
+            <!-- Center Content Layout -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.romainpiel.shimmer.ShimmerTextView
+                    android:id="@+id/eventType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font2"
+                    android:text="MARKET NAME"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textFontWeight="600"
+                    app:reflectionColor="@color/black" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/eventNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font2"
+                    android:letterSpacing="0.02"
+                    android:text="***-**-***"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/marketOpen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font3"
+                    android:layout_marginTop="2dp"
+                    android:text="Closed For Today"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Closed button / Action Icon (Right Side) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/eventStatusContainer"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="6dp"
+                app:cardBackgroundColor="#EF4444"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="0dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/eventStatus"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/play_icon"
+                    app:tint="@color/white" />
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <!-- Active Users Row -->
+        <LinearLayout
+            android:id="@+id/activeUsersRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_section"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingVertical="5dp"
+            android:background="#F5F5F5">
+
+            <View
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:background="@drawable/circle_blue"
+                android:backgroundTint="#4CAF50"
+                android:layout_marginEnd="5dp"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvActiveUsers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1,024 Players Active"
+                android:textColor="#2E7D32"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Horizontal Divider -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/activeUsersRow"
+            android:background="#000000" />
+
+        <!-- Bottom Timings Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/openlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Open Bids : "
+                android:textColor="#555555"
+                android:textSize="12sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/openingTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00 AM"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/closelabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Close Bids : "
+                android:textColor="#555555"
+                android:textSize="12sp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/closingTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11:00 AM"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/adarkg"
+    tools:context=".sfdghj.PlayingActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/status_bar_height"
+        android:id="@+id/appbarLayout">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/alightg"
+            app:navigationIconTint="@color/white"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            app:titleTextColor="@color/black"
+            app:menu="@menu/menu_purse"
+            app:contentInsetStartWithNavigation="0dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dataConText"
+        android:text="@string/you_are_not_connected_to_internet"
+        android:textColor="@color/white"
+        android:background="@color/warn_red"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:elevation="1dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/adarkg">
+        <LinearLayout
+            android:id="@+id/ll_bid"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/adarkg">
+            <LinearLayout
+                android:id="@+id/llDateSession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/choose_date"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font3"
+                    android:background="@drawable/buttonwb"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="16dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/alcolor1" />
+
+                <Spinner
+                    android:id="@+id/spinnerSession"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/buttonwb" />
+                
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone">
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/open"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="open" />
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/close"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="close" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/chooseSpDpTp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Panna Type"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:paddingVertical="10dp"
+                android:textColor="@color/btnTextColor"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"
+                android:layout_marginHorizontal="20dp"/>
+            <LinearLayout
+                android:id="@+id/llSpDpTp"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="20dp"
+                android:visibility="gone"
+                android:background="@drawable/buttonwb">
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cbSp"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/font3"
+                    android:layout_height="wrap_content"
+                    android:text="SP"
+                    android:textColor="@color/alcolor1"
+                    android:layout_weight="1"/>
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cbDp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font3"
+                    android:text="DP"
+                    android:textColor="@color/alcolor1"
+                    android:layout_weight="1"/>
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:id="@+id/cbTp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font3"
+                    android:text="TP"
+                    android:textColor="@color/alcolor1"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="20dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/digText"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Digit:"
+                    android:textColor="@color/btnTextColor"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/input_d"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/font3"
+                    android:background="@drawable/buttonwb"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/alcolor1"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llJodiSuggestions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone">
+                
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvJodiSuggestions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llCloseDigit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="20dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/openCD"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Close Digit:"
+                    android:textColor="@color/btnTextColor"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/inputCD"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/buttonwb"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/alcolor1"
+                    android:inputType="number"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="20dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Points:"
+                    android:textColor="@color/btnTextColor"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputCoins"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/buttonwb"
+                        android:hint="Points"
+                        android:gravity="center"
+                        android:paddingHorizontal="16dp"
+                        android:inputType="number"
+                        android:textColorHint="#9e9e9e"
+                        android:fontFamily="@font/font3"
+                        android:maxLength="9"
+                        android:textColor="@color/alcolor1" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_proceed"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:text="Add"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font2"
+                        android:backgroundTint="@color/primary_color"
+                        app:cornerRadius="25dp"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_preview_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_bid"
+            android:layout_above="@id/ll_bid_bottom"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:background="@color/primary_color"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Digits"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Points"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Type"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:gravity="center"
+                    android:text="Delete"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_bid_bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtv_total_coins"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:textColor="@color/btnTextColor"
+                android:textStyle="bold"
+                android:text="Total Points : 0"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pro_conf"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/alightg"
+                android:fontFamily="@font/font2"
+                android:textColor="@color/white"
+                android:text="@string/proceed"
+                android:gravity="center"
+                android:onClick="proceedConformBtn"/>
+        </LinearLayout>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/progressBar"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</LinearLayout>

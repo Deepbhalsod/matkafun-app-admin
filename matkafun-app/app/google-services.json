@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "478996341653",
+    "project_id": "matkafun-47a83",
+    "storage_bucket": "matkafun-47a83.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478996341653:android:e0b6d79de403a2ae614c9c",
+        "android_client_info": {
+          "package_name": "com.onegamematkafun.market"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDthpNjhjs5ssmhS2SGRMlQNebSJ4nhK3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
