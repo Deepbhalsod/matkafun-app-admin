@@ -1,8 +1,8 @@
 <resources>
     <!--variable details-->
-    <string translatable="false" name="app_name">Wonder 1 Club</string>
-    <string translatable="false" name="app_name1">Wonder 1</string>
-    <string translatable="false" name="app_name2">Club</string>
+    <string translatable="false" name="app_name">MatkaFun</string>
+    <string translatable="false" name="app_name1">Matka</string>
+    <string translatable="false" name="app_name2">Fun</string>
     <string name="txt_welcome">WELCOME</string>
     <string name="sub_mail">Mail Subject</string>
     <string name="msg_mail">Mail message</string>

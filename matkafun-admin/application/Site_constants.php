@@ -20,7 +20,7 @@ version_compare(PHP_VERSION, '7.0.0', '>=') or errorMsg::Show('Your PHP Version 
 errorMsg::get_protocol() or errorMsg::Show('Protocol Not Define');
 
 /** Site name : `Base Project` */
-defined('SITE_NAME') or define('SITE_NAME', 'Wonder 1 Club');
+defined('SITE_NAME') or define('SITE_NAME', 'MatkaFun');
 defined('Unit') or define('Unit', '');
 
 defined('PASSWORD_SALT') or define('PASSWORD_SALT', md5('TwsTechies'));
@@ -34,9 +34,9 @@ defined('SESS_PATH') or define('SESS_PATH', APPPATH . '../temp/');
 
 
 define("DB_HOST", 'localhost');
-define("DB_USER", 'u472706178_wonder1club');
-define("DB_PASS", "Wonder1Club@2025");
-define("DB_NAME", 'u472706178_wonder1club');
+define("DB_USER", 'u472706178_matkafun');
+define("DB_PASS", "MatkaFun@2025");
+define("DB_NAME", 'u472706178_matkafun');
 
 // define("DB_USER", 'u472706178_pune777');
 // define("DB_PASS", "Pune777@2025");
