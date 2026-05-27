@@ -9,7 +9,7 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId "com.onewonderclub.market"
+        applicationId "com.onegamematkafun.market"
         minSdkVersion 23
         targetSdk 35
         versionCode 1
@@ -18,10 +18,10 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file("wonder1club.jks")
-            storePassword "Wonder1Club@2025"
+            storeFile file("matkafun.jks")
+            storePassword "MatkaFun@2025"
             keyAlias "key0"
-            keyPassword "Wonder1Club@2025"
+            keyPassword "MatkaFun@2025"
         }
     }
     buildTypes {

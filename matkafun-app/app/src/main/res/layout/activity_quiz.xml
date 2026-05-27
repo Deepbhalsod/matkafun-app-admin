@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/quiz_background"
-    tools:context="com.onewonderclub.market.activityclass.QuizActivity">
+    tools:context="com.onegamematkafun.market.activityclass.QuizActivity">
 
     <!-- Header -->
     <LinearLayout

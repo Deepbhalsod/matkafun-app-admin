@@ -24,7 +24,7 @@
 # =============================
 
 # Your response models
--keep class com.onewonderclub.market.responseclass.** { *; }
+-keep class com.onegamematkafun.market.responseclass.** { *; }
 
 # =============================
 # Firebase / Play Services
@@ -55,7 +55,7 @@
 # =============================
 
 # Retrofit interfaces
--keep interface com.onewonderclub.market.api.** { *; }
+-keep interface com.onegamematkafun.market.api.** { *; }
 -keep interface retrofit2.** { *; }
 -dontwarn retrofit2.**
 
@@ -64,7 +64,7 @@
 -keep class okhttp3.** { *; }
 
 # Gson model classes (add your model package here)
--keep class com.onewonderclub.market.models.** { *; }
+-keep class com.onegamematkafun.market.models.** { *; }
 
 # Moshi
 -dontwarn com.squareup.moshi.**
