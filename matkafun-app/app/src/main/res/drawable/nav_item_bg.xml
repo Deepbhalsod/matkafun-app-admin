@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Red circle behind the icon -->
+    <item
+        android:left="14dp"
+        android:width="36dp"
+        android:height="36dp"
+        android:gravity="center_vertical|start">
+        <shape android:shape="oval">
+            <solid android:color="@color/brand_red" />
+        </shape>
+    </item>
+    
+    <!-- Transparent background for the rest of the item, 
+         to handle standard touch feedback if needed we could add a ripple,
+         but keeping it simple for now. -->
+    <item>
+        <ripple xmlns:android="http://schemas.android.com/apk/res/android"
+            android:color="#33000000">
+            <item android:id="@android:id/mask">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/white" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+</layer-list>

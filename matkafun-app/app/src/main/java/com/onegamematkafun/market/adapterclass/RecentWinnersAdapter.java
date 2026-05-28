@@ -2,6 +2,7 @@ package com.onegamematkafun.market.adapterclass;
 
 import android.content.Context;
 import android.graphics.Color;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ public class RecentWinnersAdapter extends RecyclerView.Adapter<RecentWinnersAdap
 
     private final Context context;
     private final List<DataTopWinners.Data> list;
-    private final String[] colors = {"#00A896", "#E67E22", "#3498DB", "#9B59B6", "#2ECA69", "#E74C3C", "#F1C40F"};
+    private final int[] colorRes = {R.color.icon_teal, R.color.icon_orange, R.color.icon_blue, R.color.icon_purple, R.color.icon_green, R.color.quiz_wrong, R.color.quiz_accent};
 
     public RecentWinnersAdapter(Context context, List<DataTopWinners.Data> list) {
         this.context = context;
@@ -45,7 +46,8 @@ public class RecentWinnersAdapter extends RecyclerView.Adapter<RecentWinnersAdap
 
         holder.tvAvatarLetter.setText(String.valueOf(realPosition + 1));
         
-        holder.circleBg.setCardBackgroundColor(Color.parseColor(colors[position % colors.length]));
+        int color = ContextCompat.getColor(context, colorRes[position % colorRes.length]);
+        holder.circleBg.setCardBackgroundColor(color);
 
         String gName = data.getGameName();
         if (gName == null || gName.trim().isEmpty()) {

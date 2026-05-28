@@ -169,7 +169,7 @@ public class DashboardActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(3);
         viewPagerAppliance = new ViewPagerAppliance(getSupportFragmentManager());
 
-        mNaviView.setItemIconTintList(null);
+        mNaviView.setItemIconTintList(android.content.res.ColorStateList.valueOf(Color.WHITE));
         userName = mNaviView.getHeaderView(0).findViewById(R.id.userDName);
         mMobileNum = mNaviView.getHeaderView(0).findViewById(R.id.mobile_nav_num);
         mNotiSwitchBtn = mNaviView.getHeaderView(0).findViewById(R.id.notiSwitchBtn);

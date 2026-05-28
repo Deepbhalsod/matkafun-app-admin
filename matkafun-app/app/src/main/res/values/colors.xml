@@ -73,6 +73,13 @@
     <color name="button_red">#D32F2F</color>
     <color name="sd">#feb005</color>
 
+    <!-- Additional centralized colors -->
+    <color name="whatsapp_green">#25D366</color>
+    <color name="telegram_blue">#0088CC</color>
+    <color name="pill_red">#FF5A52</color>
+    <color name="pill_purple">#6C4AE6</color>
+    <color name="light_yellow">#FFF9C4</color>
+
     <!-- Legacy Color Overrides -->
     <color name="adarkg">#FFFFFF</color>
     <color name="alightg">#feb005</color>
@@ -109,4 +116,9 @@
     <color name="quiz_surface">#1E293B</color> <!-- Slate 800 -->
     <color name="quiz_correct">#10B981</color> <!-- Emerald 500 -->
     <color name="quiz_wrong">#EF4444</color> <!-- Red 500 -->
+
+    <!-- New Brand Colors -->
+    <color name="brand_red">#FF3B30</color>
+    <color name="brand_purple">#4A2E80</color>
+    <color name="light_grey">#E0E0E0</color>
 </resources>

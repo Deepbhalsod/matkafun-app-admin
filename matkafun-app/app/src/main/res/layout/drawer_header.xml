@@ -1,38 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:paddingVertical="10dp"
-    android:paddingHorizontal="25dp"
-    android:background="@color/alightg"
-    android:gravity="center_horizontal"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:orientation="horizontal"
+    android:paddingTop="64dp"
+    android:paddingBottom="24dp"
+    android:paddingHorizontal="24dp"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Light">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/userDName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/adarkg"/>
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/mobile_nav_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/adarkg"/>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/baseline_person_4_24"
+        app:tint="@color/brand_red"
+        android:layout_marginEnd="16dp" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/notiSwitchBtn"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/adarkg"
-        android:paddingStart="8dp"
-        android:paddingEnd="5dp"
-        android:checked="true"
-        android:visibility="gone"
-        android:background="@drawable/dark_border"
-        android:text="App Notification"/>
+        android:orientation="vertical">
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/userDName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mobile_nav_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/notiSwitchBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:paddingStart="8dp"
+            android:paddingEnd="5dp"
+            android:checked="true"
+            android:visibility="gone"
+            android:background="@drawable/dark_border"
+            android:text="App Notification"/>
+    </LinearLayout>
 
 </LinearLayout>

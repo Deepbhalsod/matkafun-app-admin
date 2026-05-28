@@ -106,7 +106,10 @@ public class DashboardActivity extends AppCompatActivity {
 
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(getResources().getColor(R.color.matka_blue));
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
         
         String lang = SharPrefClass.getPrfrnceinfo(this, SharPrefClass.KEY_SELECTED_LANGUAGE);
         if (lang != null) {
@@ -143,6 +146,7 @@ public class DashboardActivity extends AppCompatActivity {
         }
         getAppInfoMethod();
 
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
     }
 
     // Replace fetchNoticeFromServer() with this improved version
@@ -383,7 +387,7 @@ public class DashboardActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(3);
         viewPagerAppliance = new ViewPagerAppliance(getSupportFragmentManager());
 
-        mNaviView.setItemIconTintList(null);
+        mNaviView.setItemIconTintList(android.content.res.ColorStateList.valueOf(android.graphics.Color.WHITE));
         userName = mNaviView.getHeaderView(0).findViewById(R.id.userDName);
         mMobileNum = mNaviView.getHeaderView(0).findViewById(R.id.mobile_nav_num);
         mNotiSwitchBtn = mNaviView.getHeaderView(0).findViewById(R.id.notiSwitchBtn);
@@ -414,7 +418,7 @@ public class DashboardActivity extends AppCompatActivity {
 //        walletCountBadge = mToolbar.findViewById(R.id.wallet_count_badge);
         mNotificationIcon = findViewById(R.id.notification_icon);
         mWalletBalanceText = findViewById(R.id.wallet_balance_text);
-        mMenuPill = findViewById(R.id.menu_pill);
+        mMenuPill = findViewById(R.id.menu_button);
         mWalletPill = findViewById(R.id.wallet_pill);
         notificationBadge = findViewById(R.id.notification_badge);
 
@@ -435,11 +439,7 @@ public class DashboardActivity extends AppCompatActivity {
         if (mWalletPill != null) {
             mWalletPill.setOnClickListener(v -> viewPager.setCurrentItem(2, true));
         }
-        
-        View fabHome = findViewById(R.id.fab_home);
-        if (fabHome != null) {
-            fabHome.setOnClickListener(v -> viewPager.setCurrentItem(0, true));
-        }
+
         if (mNotificationIcon != null) {
             mNotificationIcon.setOnClickListener(v -> startActivity(new Intent(DashboardActivity.this, NotificationActivity.class)));
         }

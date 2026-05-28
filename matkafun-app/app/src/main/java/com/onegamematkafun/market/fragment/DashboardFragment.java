@@ -103,19 +103,10 @@ public class DashboardFragment extends Fragment {
         whatsppTv.setText(getSafePhone(whatsappNum));
 
         String callNum = SharPrefClass.getContactObject(context, SharPrefClass.KEY_PHONE_NUMBER1);
-        // callTv.setText(getSafePhone(callNum));
+        callTv.setText(getSafePhone(callNum));
 
         whatsapp_item.setOnClickListener(v -> {
-            String msg = "Hello Sir\nMy Name : " +
-                    SharPrefClass.getPrfrnceinfo(context, SharPrefClass.KEY_USER_NAME) +
-                    "\nMy Number : " +
-                    SharPrefClass.getPrfrnceinfo(context, SharPrefClass.KEY_PHONE_NUMBER);
-
-            String url = "https://api.whatsapp.com/send?phone="+SharPrefClass.getContactObject(context, SharPrefClass.KEY_WHATSAP_NUMBER)+"&text="+msg;
-            Intent i = new Intent(Intent.ACTION_VIEW);
-
-            i.setData(Uri.parse(url));
-            startActivity(i);
+            DashboardActivity.viewPager.setCurrentItem(1, true);
         });
 
         dpboss_rl.setOnClickListener(new View.OnClickListener() {
@@ -130,33 +121,8 @@ public class DashboardFragment extends Fragment {
         telegram_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String contactObj = SharPrefClass.getContactObject(context, SharPrefClass.KEY_PHONE_NUMBER2);
-                Log.e("TELGRAM", contactObj != null ? contactObj : "null");
-
-                String msg = "Hello Sir\nMy Name : " +
-                        SharPrefClass.getPrfrnceinfo(context, SharPrefClass.KEY_USER_NAME) +
-                        "\nMy Number : " +
-                        SharPrefClass.getPrfrnceinfo(context, SharPrefClass.KEY_PHONE_NUMBER);
-
-
-                String url = contactObj;
-                if (url == null || url.trim().isEmpty()) {
-                    android.widget.Toast.makeText(context, "Telegram link is missing.", android.widget.Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (!url.startsWith("http://") && !url.startsWith("https://")) {
-                    url = "https://" + url;
-                }
-                
-                try {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(url));
-                    startActivity(i);
-                } catch (android.content.ActivityNotFoundException e) {
-                    android.widget.Toast.makeText(context, "No app found to open this link.", android.widget.Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                Intent intent = new Intent(getActivity(), DisawarActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -334,10 +300,10 @@ public class DashboardFragment extends Fragment {
         phoneLyt = view.findViewById(R.id.phoneLyt);
         dpboss_rl = view.findViewById(R.id.dpboss_rl);
         whatsapp_item= view.findViewById(R.id.whatsapp_item);
-        whatsppTv= view.findViewById(R.id.whats_app_n);
-        // callTv = view.findViewById(R.id.call_tv);
+        whatsppTv= view.findViewById(R.id.whatsapp_contact_text);
+        callTv = view.findViewById(R.id.call_tv);
 
-        whatsappBtn = whatsapp_item;
+        whatsappBtn = view.findViewById(R.id.whatsappBtn);
         user_profile = null; // No profile button on dashboard currently
         user_name = view.findViewById(R.id.user_name);
 
@@ -363,11 +329,10 @@ public class DashboardFragment extends Fragment {
             stripLayout.setVisibility(View.GONE);
             aaa.setVisibility(View.GONE);
         }else {
-            // Hide Profile, Slider
-            phoneLyt.setVisibility(View.GONE);
+            phoneLyt.setVisibility(View.VISIBLE);
             mViewPagFrame.setVisibility(View.GONE);
             stripLayout.setVisibility(View.VISIBLE);
-            
+
             // Show main button container
             aaa.setVisibility(View.VISIBLE);
         }

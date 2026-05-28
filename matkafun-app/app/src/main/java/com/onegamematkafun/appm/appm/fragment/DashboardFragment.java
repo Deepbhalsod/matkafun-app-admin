@@ -71,6 +71,7 @@ public class DashboardFragment extends Fragment {
     private String[] mImages;
 
     TextView whatsppTv;
+    private TextView callTv;
     private static RelativeLayout dpboss_rl;
     private RelativeLayout telegram_item;
     private static RelativeLayout addpoints_item;
@@ -93,18 +94,11 @@ public class DashboardFragment extends Fragment {
 
     private void clickListeners(Context context) {
 
-        whatsppTv.setText(SharPrefClass.getContactObject(context, SharPrefClass.KEY_WHATSAP_NUMBER).substring(3,13).toString());
+        whatsppTv.setText(SharPrefClass.getContactObject(context, SharPrefClass.KEY_WHATSAP_NUMBER).substring(3,13));
+        callTv.setText(SharPrefClass.getContactObject(context, SharPrefClass.KEY_PHONE_NUMBER1).substring(3,13));
+
         whatsapp_item.setOnClickListener(v -> {
-            String msg = "Hello Sir\nMy Name : " +
-                    SharPrefClass.getPrfrnceinfo(context, SharPrefClass.KEY_USER_NAME) +
-                    "\nMy Number : " +
-                    SharPrefClass.getPrfrnceinfo(context, SharPrefClass.KEY_PHONE_NUMBER);
-
-            String url = "https://api.whatsapp.com/send?phone="+SharPrefClass.getContactObject(context, SharPrefClass.KEY_WHATSAP_NUMBER)+"&text="+msg;
-            Intent i = new Intent(Intent.ACTION_VIEW);
-
-            i.setData(Uri.parse(url));
-            startActivity(i);
+            DashboardActivity.viewPager.setCurrentItem(1, true);
         });
 
         dpboss_rl.setOnClickListener(new View.OnClickListener() {
@@ -119,32 +113,8 @@ public class DashboardFragment extends Fragment {
         telegram_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String contactObj = SharPrefClass.getContactObject(context, SharPrefClass.KEY_PHONE_NUMBER2);
-                Log.e("TELGRAM", contactObj != null ? contactObj : "null");
-
-                String msg = "Hello Sir\nMy Name : " +
-                        SharPrefClass.getPrfrnceinfo(context, SharPrefClass.KEY_USER_NAME) +
-                        "\nMy Number : " +
-                        SharPrefClass.getPrfrnceinfo(context, SharPrefClass.KEY_PHONE_NUMBER);
-
-                String url = contactObj;
-                if (url == null || url.trim().isEmpty()) {
-                    android.widget.Toast.makeText(context, "Telegram link is missing.", android.widget.Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (!url.startsWith("http://") && !url.startsWith("https://")) {
-                    url = "https://" + url;
-                }
-                
-                try {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(url));
-                    startActivity(i);
-                } catch (android.content.ActivityNotFoundException e) {
-                    android.widget.Toast.makeText(context, "No app found to open this link.", android.widget.Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                Intent intent = new Intent(getActivity(), DisawarActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -240,9 +210,10 @@ public class DashboardFragment extends Fragment {
         phoneLyt = view.findViewById(R.id.phoneLyt);
         dpboss_rl = view.findViewById(R.id.dpboss_rl);
         whatsapp_item= view.findViewById(R.id.whatsapp_item);
-        whatsppTv= view.findViewById(R.id.whats_app_n);
+        whatsppTv= view.findViewById(R.id.whatsapp_contact_text);
+        callTv = view.findViewById(R.id.call_tv);
 
-        whatsappBtn = whatsapp_item;
+        whatsappBtn = view.findViewById(R.id.whatsappBtn);
         user_profile = null;
         user_name = null;
 
@@ -275,6 +246,7 @@ public class DashboardFragment extends Fragment {
             whatsapp_item.setVisibility(View.VISIBLE);
             withdraw_op.setVisibility(View.VISIBLE);
             dpboss_rl.setVisibility(View.VISIBLE);
+            phoneLyt.setVisibility(View.VISIBLE);
         }else{
             galli_diswar_item.setVisibility(View.GONE);
             starline_item.setVisibility(View.GONE);
@@ -282,6 +254,7 @@ public class DashboardFragment extends Fragment {
             whatsapp_item.setVisibility(View.GONE);
             withdraw_op.setVisibility(View.GONE);
             dpboss_rl.setVisibility(View.GONE);
+            phoneLyt.setVisibility(View.GONE);
         }
     }
 

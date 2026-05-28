@@ -6,190 +6,203 @@
     android:layout_marginHorizontal="10dp"
     android:layout_marginVertical="6dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="16dp"
     app:cardElevation="3dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="14dp">
 
-        <!-- Top-Left Curve Background -->
-        <ImageView
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/bg_corner_curve"
-            android:scaleType="fitXY" />
-
-        <!-- Chart Image Left Background -->
+        <!-- Hidden views to satisfy old bindings in TurnamentListAdapter without visual layout footprint -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/chartTable"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/chart_icon1"
-            android:scaleType="fitStart" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
 
-        <!-- Top Section (Name, Result, Status) -->
-        <RelativeLayout
+        <!-- Left Content Column -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/top_section"
-            android:padding="12dp">
+            android:layout_toStartOf="@id/eventStatusContainer"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical">
 
-            <!-- Center Content Layout -->
-            <LinearLayout
+            <!-- Market Name (e.g. SRIDEVI MORNING) -->
+            <com.romainpiel.shimmer.ShimmerTextView
+                android:id="@+id/eventType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:fontFamily="@font/font2"
+                android:text="MARKET NAME"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:reflectionColor="@color/black" />
 
-                <com.romainpiel.shimmer.ShimmerTextView
-                    android:id="@+id/eventType"
+            <!-- Result Number (e.g. ***-**-***) -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/eventNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font2"
+                android:text="***_**_***"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/brand_red"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Market Status (e.g. Closed for today) -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/marketOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font3"
+                android:layout_marginTop="4dp"
+                android:text="Closed for today"
+                android:textColor="@color/brand_red"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- Timing Columns Grid -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- Time Open column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/openlabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last Bids"
+                        android:textColor="#9E9E9E"
+                        android:textSize="10sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time Open: "
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/openingTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10:00 AM"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Time Close column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/closelabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last Bids"
+                        android:textColor="#9E9E9E"
+                        android:textSize="10sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time Close: "
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/closingTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="11:00 AM"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Active Players Row (dynamically controlled) -->
+            <LinearLayout
+                android:id="@+id/activeUsersRow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="@drawable/circle_blue"
+                    android:backgroundTint="#4CAF50"
+                    android:layout_marginEnd="4dp" />
+
+                <TextView
+                    android:id="@+id/tvActiveUsers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/font2"
-                    android:text="MARKET NAME"
-                    android:textAllCaps="true"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textFontWeight="600"
-                    app:reflectionColor="@color/black" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/eventNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/font2"
-                    android:letterSpacing="0.02"
-                    android:text="***-**-***"
-                    android:layout_marginTop="2dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/marketOpen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/font3"
-                    android:layout_marginTop="2dp"
-                    android:text="Closed For Today"
-                    android:textColor="@color/red"
-                    android:textSize="14sp"
+                    android:text="1,024 Players Active"
+                    android:textColor="#2E7D32"
+                    android:textSize="11sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Closed button / Action Icon (Right Side) -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/eventStatusContainer"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="6dp"
-                app:cardBackgroundColor="#EF4444"
-                app:cardCornerRadius="25dp"
-                app:cardElevation="0dp">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/eventStatus"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/play_icon"
-                    app:tint="@color/white" />
-            </androidx.cardview.widget.CardView>
-        </RelativeLayout>
-
-        <!-- Active Users Row -->
-        <LinearLayout
-            android:id="@+id/activeUsersRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/top_section"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:paddingVertical="5dp"
-            android:background="#F5F5F5">
-
-            <View
-                android:layout_width="7dp"
-                android:layout_height="7dp"
-                android:background="@drawable/circle_blue"
-                android:backgroundTint="#4CAF50"
-                android:layout_marginEnd="5dp"
-                android:layout_gravity="center_vertical" />
-
-            <TextView
-                android:id="@+id/tvActiveUsers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1,024 Players Active"
-                android:textColor="#2E7D32"
-                android:textSize="11sp"
-                android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Horizontal Divider -->
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/activeUsersRow"
-            android:background="#000000" />
+        <!-- Right Side: Circular status/play button -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/eventStatusContainer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="4dp"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeColor="@color/brand_red"
+            app:strokeWidth="3dp"
+            app:cardElevation="0dp">
 
-        <!-- Bottom Timings Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider"
-            android:gravity="center"
-            android:paddingVertical="10dp"
-            android:orientation="horizontal">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/eventStatus"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:src="@drawable/play_icon"
+                app:tint="@color/brand_red" />
+        </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/openlabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="• Open Bids : "
-                android:textColor="#555555"
-                android:textSize="12sp" />
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/openingTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10:00 AM"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="12sp" />
-
-            <Space
-                android:layout_width="24dp"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/closelabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="• Close Bids : "
-                android:textColor="#555555"
-                android:textSize="12sp" />
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/closingTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="11:00 AM"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="12sp" />
-
-        </LinearLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

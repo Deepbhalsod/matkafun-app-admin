@@ -18,6 +18,9 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.card.MaterialCardView;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import com.google.android.material.textview.MaterialTextView;
 import com.kalyankuber.alpha.R;
 import com.onegamematkafun.market.activityclass.TableActivity;
@@ -69,7 +72,7 @@ public class TurnamentListAdapter extends RecyclerView.Adapter<TurnamentListAdap
         private final MaterialTextView marketOpen;
         private final ShapeableImageView chartTable;
         private final ShapeableImageView eventStatus;
-        private final CardView eventStatusContainer;
+        private final MaterialCardView eventStatusContainer;
         private final ShimmerTextView eventType;
         private final TextView tvActiveUsers;
         private final View activeUsersRow;
@@ -85,7 +88,7 @@ public class TurnamentListAdapter extends RecyclerView.Adapter<TurnamentListAdap
             eventType = itemView.findViewById(R.id.eventType);
             eventNumber = itemView.findViewById(R.id.eventNumber);
             eventStatus = itemView.findViewById(R.id.eventStatus);
-            eventStatusContainer = itemView.findViewById(R.id.eventStatusContainer);
+            eventStatusContainer = (MaterialCardView) itemView.findViewById(R.id.eventStatusContainer);
             openingTime = itemView.findViewById(R.id.openingTime);
             closingTime = itemView.findViewById(R.id.closingTime);
             chartTable = itemView.findViewById(R.id.chartTable);
@@ -96,14 +99,20 @@ public class TurnamentListAdapter extends RecyclerView.Adapter<TurnamentListAdap
             shimmer.start(eventType);
         }
 
+        private void applyStatusStyle(boolean isMarketOpen, Context context) {
+            int color = ContextCompat.getColor(context, isMarketOpen ? R.color.green : R.color.brand_red);
+            eventStatus.setImageResource(R.drawable.play_icon);
+            eventStatus.setImageTintList(ColorStateList.valueOf(color));
+            if (eventStatusContainer != null) {
+                eventStatusContainer.setStrokeColor(ColorStateList.valueOf(color));
+                eventStatusContainer.setCardBackgroundColor(ColorStateList.valueOf(Color.WHITE));
+            }
+        }
+
         public void attach(DataGameList.Data data, OnItemClickListener listener, Context context, int position) {
             if (!SharPrefClass.getLiveUser(context)){
-                eventStatus.setImageResource(R.drawable.chart_icon);
-                if (eventStatusContainer != null) {
-                    eventStatusContainer.setCardBackgroundColor(ContextCompat.getColor(context, R.color.red));
-                }
+                applyStatusStyle(false, context);
                 eventStatus.setOnClickListener(v -> {
-
                     Intent intent = new Intent(context, TableActivity.class);
                     intent.putExtra(context.getString(R.string.chart), data.getChart_url());
                     context.startActivity(intent);
@@ -112,22 +121,14 @@ public class TurnamentListAdapter extends RecyclerView.Adapter<TurnamentListAdap
 
             }else {
                 marketOpen.setVisibility(View.VISIBLE);
-                if (data.isMarket_open() && data.isPlay()){
-                    eventStatus.setImageResource(R.drawable.play_icon);
-                    if (eventStatusContainer != null) {
-                        eventStatusContainer.setCardBackgroundColor(ContextCompat.getColor(context, R.color.green));
-                    }
+                boolean isRunning = data.isMarket_open() && data.isPlay();
+                applyStatusStyle(isRunning, context);
+                if (isRunning) {
                     marketOpen.setText("Market is Running");
-                    marketOpen.setBackgroundColor(ContextCompat.getColor(context, R.color.white));
                     marketOpen.setTextColor(ContextCompat.getColor(context, R.color.green));
-                }else {
-                    eventStatus.setImageResource(R.drawable.close_icon);
-                    if (eventStatusContainer != null) {
-                        eventStatusContainer.setCardBackgroundColor(ContextCompat.getColor(context, R.color.red));
-                    }
-                    marketOpen.setText("Market Closed");
-                    marketOpen.setBackgroundColor(ContextCompat.getColor(context, R.color.white));
-                    marketOpen.setTextColor(ContextCompat.getColor(context, R.color.red));
+                } else {
+                    marketOpen.setText("Closed for today");
+                    marketOpen.setTextColor(ContextCompat.getColor(context, R.color.brand_red));
                 }
                 userDataMethod(data);
             }
@@ -214,22 +215,14 @@ public class TurnamentListAdapter extends RecyclerView.Adapter<TurnamentListAdap
             closingTime.setText(data.getClose_time());
             eventNumber.setText(data.getResult());
 
-            if (data.isMarket_open() && data.isPlay()){
-                eventStatus.setImageResource(R.drawable.play_icon);
-                if (eventStatusContainer != null) {
-                    eventStatusContainer.setCardBackgroundColor(ContextCompat.getColor(context, R.color.green));
-                }
+            boolean isRunning = data.isMarket_open() && data.isPlay();
+            applyStatusStyle(isRunning, context);
+            if (isRunning) {
                 marketOpen.setText("Market is Running");
-                marketOpen.setBackgroundColor(ContextCompat.getColor(context, R.color.white));
                 marketOpen.setTextColor(ContextCompat.getColor(context, R.color.green));
-            }else {
-                eventStatus.setImageResource(R.drawable.close_icon);
-                if (eventStatusContainer != null) {
-                    eventStatusContainer.setCardBackgroundColor(ContextCompat.getColor(context, R.color.red));
-                }
-                marketOpen.setText("Market Closed");
-                marketOpen.setBackgroundColor(ContextCompat.getColor(context, R.color.white));
-                marketOpen.setTextColor(ContextCompat.getColor(context, R.color.red));
+            } else {
+                marketOpen.setText("Closed for today");
+                marketOpen.setTextColor(ContextCompat.getColor(context, R.color.brand_red));
             }
             Animation  animation = AnimationUtils.loadAnimation(context, R.anim.move);
             eventNumber.setAnimation(animation);
