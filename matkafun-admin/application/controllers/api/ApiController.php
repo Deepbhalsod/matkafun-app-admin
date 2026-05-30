@@ -1,5 +1,23 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
+if (!function_exists('apache_request_headers')) {
+    function apache_request_headers()
+    {
+        if (function_exists('getallheaders')) {
+            return getallheaders();
+        }
+
+        $headers = [];
+        foreach ($_SERVER as $name => $value) {
+            if (substr($name, 0, 5) === 'HTTP_') {
+                $headerName = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))));
+                $headers[$headerName] = $value;
+            }
+        }
+        return $headers;
+    }
+}
+
 class ApiController extends CI_Controller
 {
     public function __construct()
