@@ -219,6 +219,9 @@
     <string name="withdraw_open_time_info">Withdraw Open 4pM close 6pm</string>
     <string name="passbook">Passbook</string>
 
+    <string name="fun_starline">FUN STARLINE</string>
+    <string name="fun_jackpot">FUN JACKPOT</string>
+
     <string-array name="bid_status_array">
         <item>All Status</item>
         <item>Pending</item>

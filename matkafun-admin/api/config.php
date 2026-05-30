@@ -3,9 +3,9 @@ date_default_timezone_set('Asia/Kolkata');
 
 // ========== DB CONFIG ==========
 $servername = "localhost";
-$username   = "u472706178_matkafun";
+$username   = "sql_matkafun_fun";
 $password   = "MatkaFun@2025";
-$dbname     = "u472706178_matkafun";
+$dbname     = "sql_matkafun_fun";
 
 // ========== ONESIGNAL CONFIG ==========
 $app_id  = "24e340cf-5dbf-40cc-8954-b9ea8e502c56";

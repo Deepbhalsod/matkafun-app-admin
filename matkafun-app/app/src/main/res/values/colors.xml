@@ -62,16 +62,16 @@
     <color name="abest">#0f2b50</color>
 
     <!-- New Theme Colors -->
-    <color name="primary_color">#feb005</color>
-    <color name="navy_blue">#feb005</color>
-    <color name="navy_blue_dark">#feb005</color>
+    <color name="primary_color">#FF3B30</color>
+    <color name="navy_blue">#FF3B30</color>
+    <color name="navy_blue_dark">#FF3B30</color>
     <color name="color_gold">#FFD700</color>
     <color name="app_background">#FFFFFF</color>
     <color name="card_background">#FFFFFF</color>
     <color name="text_primary">#000000</color>
-    <color name="text_secondary">#feb005</color>
+    <color name="text_secondary">#FF3B30</color>
     <color name="button_red">#D32F2F</color>
-    <color name="sd">#feb005</color>
+    <color name="sd">#FF3B30</color>
 
     <!-- Additional centralized colors -->
     <color name="whatsapp_green">#25D366</color>
@@ -82,14 +82,14 @@
 
     <!-- Legacy Color Overrides -->
     <color name="adarkg">#FFFFFF</color>
-    <color name="alightg">#feb005</color>
-    <color name="matka_blue">#feb005</color>
-    <color name="purple_500">#feb005</color>
-    <color name="purple_700">#feb005</color>
-    <color name="teal_200">#feb005</color>
-    <color name="matka_red">#feb005</color>
-    <color name="primary_theme_start">#feb005</color>
-    <color name="primary_theme_end">#feb005</color>
+    <color name="alightg">#FF3B30</color>
+    <color name="matka_blue">#FF3B30</color>
+    <color name="purple_500">#FF3B30</color>
+    <color name="purple_700">#FF3B30</color>
+    <color name="teal_200">#FF3B30</color>
+    <color name="matka_red">#FF3B30</color>
+    <color name="primary_theme_start">#FF3B30</color>
+    <color name="primary_theme_end">#FF3B30</color>
     
     <!-- New Tournament Style Colors -->
     <color name="icon_orange">#FF6600</color>
