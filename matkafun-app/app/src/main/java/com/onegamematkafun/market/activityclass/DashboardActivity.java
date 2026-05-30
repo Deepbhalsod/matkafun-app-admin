@@ -151,7 +151,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     // Replace fetchNoticeFromServer() with this improved version
     private void fetchNoticeFromServer() {
-        final String url = "https://wonder1club.click/notice.php";
+        final String url = "https://matkafun.fun/notice.php";
 
         new Thread(() -> {
             java.net.HttpURLConnection conn = null;
@@ -477,7 +477,7 @@ public class DashboardActivity extends AppCompatActivity {
     private void fetchNotificationCount() {
         new Thread(() -> {
             try {
-                java.net.URL url = new java.net.URL("https://wonder1club.click/get_notifications.php");
+                java.net.URL url = new java.net.URL("https://matkafun.fun/get_notifications.php");
                 java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setConnectTimeout(8000);
@@ -671,7 +671,7 @@ private void checkUserStatusMethod() {
                     break;
                 case R.id.shareWithFriends:
                     String shareMessage = "Download " + getString(R.string.app_name) + " for the most reliable results and fast payments! \ud83c\udfc6\ud83d\udcb0\n" +
-                            "Join us now: https://wonder1club.click";
+                            "Join us now: https://matkafun.fun";
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
                     sendIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);

@@ -1,7 +1,7 @@
 package com.onegamematkafun.appm.appm.apiclass;
 
 public class ApiUrls {
-    public static String BASE_URL = "https://wonder1club.click/api/ApiController/";
+    public static String BASE_URL = "https://matkafun.fun/api/ApiController/";
 
     public static final String Registration = "signup";
     public static final String Signin = "login";

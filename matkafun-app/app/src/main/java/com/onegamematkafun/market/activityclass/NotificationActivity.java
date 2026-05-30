@@ -41,7 +41,7 @@ public class NotificationActivity extends AppCompatActivity {
         new Thread(() -> {
             try {
                 // ✅ Replace with your actual live PHP file URL
-                URL url = new URL("https://wonder1club.click/get_notifications.php");
+                URL url = new URL("https://matkafun.fun/get_notifications.php");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setConnectTimeout(10000);

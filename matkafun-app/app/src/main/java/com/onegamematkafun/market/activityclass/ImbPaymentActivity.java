@@ -110,7 +110,7 @@ public class ImbPaymentActivity extends AppCompatActivity {
         Log.d(TAG, "Checking URL: " + lower);
 
         // ✅ SUCCESS
-        if (lower.contains("wonder1club.click/succes.php")) {
+        if (lower.contains("matkafun.fun/succes.php")) {
 
             finishedOnce = true;
 
