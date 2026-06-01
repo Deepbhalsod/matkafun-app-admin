@@ -412,15 +412,13 @@ class ApiController extends CI_Controller
     // Login with pin
     public function login_pin()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
         if (!isset($_REQUEST['pin']) || empty($_REQUEST['pin'])) {
             return $this->withoutdata_res('Please input pin', 400);
         }
-
-        $token = $getHeaders['token'];
         $pin = $_REQUEST['pin'];
 
         $whr_arr  = [
@@ -634,8 +632,8 @@ class ApiController extends CI_Controller
     //Create password after forgot password
     public function forgot_password_verify()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
@@ -653,7 +651,6 @@ class ApiController extends CI_Controller
 
         $mobile = $_REQUEST['mobile'];
         $mobile_token = $_REQUEST['mobile_token'];
-        $token = $getHeaders['token'];
 
         if (strlen($mobile) != 10 || !is_numeric($mobile) || $mobile < 1000000000) {
             return $this->withoutdata_res('Please use a valid mobile number', 400);
@@ -726,8 +723,8 @@ class ApiController extends CI_Controller
     //Create password after forgot password
     public function create_pin()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
@@ -746,7 +743,6 @@ class ApiController extends CI_Controller
         $pin = $_REQUEST['pin'];
         $mobile_token = $_REQUEST['mobile_token'];
         $mobile = $_REQUEST['mobile'];
-        $token = $getHeaders['token'];
 
 
         $whr_arr  = ['conditions' => ['mobile' => $mobile, 'token' => $token]];
@@ -923,12 +919,10 @@ class ApiController extends CI_Controller
     // banner
     public function banners()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token]
@@ -963,12 +957,10 @@ class ApiController extends CI_Controller
     // upi_details
     public function upi_details()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token]
@@ -1001,12 +993,10 @@ class ApiController extends CI_Controller
     public function get_user_details()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token]
@@ -1034,8 +1024,8 @@ class ApiController extends CI_Controller
     public function update_profile()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
@@ -1045,8 +1035,6 @@ class ApiController extends CI_Controller
         if (!isset($_REQUEST['name']) || empty($_REQUEST['name'])) {
             return $this->withoutdata_res('Please select name', 400);
         }
-
-        $token = $getHeaders['token'];
         $name = $_REQUEST['name'];
         $email = $_REQUEST['email'];
 
@@ -1083,16 +1071,14 @@ class ApiController extends CI_Controller
     public function update_phonepe()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
         if (!isset($_REQUEST['phonepe']) || empty($_REQUEST['phonepe'])) {
             return $this->withoutdata_res('Please select PhonePe number', 400);
         }
-
-        $token = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token]
@@ -1123,16 +1109,14 @@ class ApiController extends CI_Controller
     public function update_gpay()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
         if (!isset($_REQUEST['gpay']) || empty($_REQUEST['gpay'])) {
             return $this->withoutdata_res('Please GPay number', 400);
         }
-
-        $token = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token]
@@ -1163,16 +1147,14 @@ class ApiController extends CI_Controller
     public function update_paytm()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
         if (!isset($_REQUEST['paytm']) || empty($_REQUEST['paytm'])) {
             return $this->withoutdata_res('Please Paytm Number', 400);
         }
-
-        $token = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token]
@@ -1203,8 +1185,8 @@ class ApiController extends CI_Controller
     public function update_bank_details()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
@@ -1223,8 +1205,6 @@ class ApiController extends CI_Controller
         if (!isset($_REQUEST['branch_address']) || empty($_REQUEST['branch_address'])) {
             return $this->withoutdata_res('Please select branch address', 400);
         }
-
-        $token = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token]
@@ -1259,16 +1239,14 @@ class ApiController extends CI_Controller
     public function update_firebase_token()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
         if (!isset($_REQUEST['token_id']) || empty($_REQUEST['token_id'])) {
             return $this->withoutdata_res('Please select firebase token id', 400);
         }
-
-        $token = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token]
@@ -1298,8 +1276,8 @@ class ApiController extends CI_Controller
     // add fund
     public function add_fund()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
@@ -1315,7 +1293,6 @@ class ApiController extends CI_Controller
             return $this->withoutdata_res('Please select a trans id', 400);
         }
 
-        $token = $getHeaders['token'];
         $points = $_REQUEST['points'];
         $trans_status = $_REQUEST['trans_status'];
         $trans_id = $_REQUEST['trans_id'];
@@ -1366,8 +1343,8 @@ class ApiController extends CI_Controller
     //withdraw points
     public function withdraw()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
@@ -1378,9 +1355,6 @@ class ApiController extends CI_Controller
         if (!isset($_REQUEST['method']) || empty($_REQUEST['method'])) {
             return $this->withoutdata_res('Please select method', 400);
         }
-
-
-        $token = $getHeaders['token'];
         $points = $_REQUEST['points'];
         $method = $_REQUEST['method'];
         $date = Date('Y-m-d H:i:s');
@@ -1460,12 +1434,10 @@ class ApiController extends CI_Controller
     public function withdraw_statement()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token    = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token]
@@ -1518,12 +1490,10 @@ class ApiController extends CI_Controller
     public function wallet_statement()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token    = $getHeaders['token'];
 
         $whr_arr  = [
             'conditions' => ['token' => $token],
@@ -1578,16 +1548,14 @@ class ApiController extends CI_Controller
     //transefer point
     public function transfer_verify()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
         if (!isset($_REQUEST['user_number']) && empty($_REQUEST['user_number'])) {
             return $this->withoutdata_res('Please select user_number', 400);
         }
-
-        $token = $getHeaders['token'];
         $user_number = $_REQUEST['user_number'];
         $date = date("Y-m-d H:i:s");
 
@@ -1627,8 +1595,8 @@ class ApiController extends CI_Controller
     //transefer point
     public function transfer_points()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
 
@@ -1639,8 +1607,6 @@ class ApiController extends CI_Controller
         if (!isset($_REQUEST['user_number']) && empty($_REQUEST['user_number'])) {
             return $this->withoutdata_res('Please select user_number', 400);
         }
-
-        $token = $getHeaders['token'];
         $user_number = $_REQUEST['user_number'];
         $points = $_REQUEST['points'];
         $date = date("Y-m-d H:i:s");
@@ -1733,12 +1699,10 @@ class ApiController extends CI_Controller
     public function win_history()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token    = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -1784,12 +1748,10 @@ class ApiController extends CI_Controller
     public function bid_history()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token    = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -1835,12 +1797,10 @@ class ApiController extends CI_Controller
     public function main_game_list()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token    = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -1937,15 +1897,13 @@ class ApiController extends CI_Controller
     //place bid
     public function place_bid()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
         if (!isset($_REQUEST['game_bids']) || empty($_REQUEST['game_bids'])) {
             return $this->withoutdata_res('Please select game bids', 400);
         }
-
-        $token = $getHeaders['token'];
         $game_bids = $_REQUEST['game_bids'];
 
         $whr_arr  = [
@@ -2039,11 +1997,10 @@ class ApiController extends CI_Controller
     public function game_rate_list()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-        $token = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -2070,11 +2027,10 @@ class ApiController extends CI_Controller
 
     public function how_to_play()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-        $token = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -2152,12 +2108,10 @@ class ApiController extends CI_Controller
     //starline game
     public function starline_game()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token    = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -2241,15 +2195,13 @@ class ApiController extends CI_Controller
     //starline place bid
     public function starline_place_bid()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
         if (!isset($_REQUEST['game_bids']) || empty($_REQUEST['game_bids'])) {
             return $this->withoutdata_res('Please select game bids', 400);
         }
-
-        $token = $getHeaders['token'];
         $game_bids = $_REQUEST['game_bids'];
 
         $whr_arr  = [
@@ -2342,11 +2294,10 @@ class ApiController extends CI_Controller
     public function starline_bid_history()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-        $token = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -2389,11 +2340,10 @@ class ApiController extends CI_Controller
     //starline win history
     public function starline_win_history()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-        $token = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -2441,12 +2391,10 @@ class ApiController extends CI_Controller
     //gali disawar game
     public function gali_disawar_game()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token    = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -2528,15 +2476,13 @@ class ApiController extends CI_Controller
     //gali disawar place bid
     public function gali_disawar_place_bid()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
         if (!isset($_REQUEST['game_bids']) || empty($_REQUEST['game_bids'])) {
             return $this->withoutdata_res('Please select game bids', 400);
         }
-
-        $token = $getHeaders['token'];
         $game_bids = $_REQUEST['game_bids'];
 
         $whr_arr  = [
@@ -2629,11 +2575,10 @@ class ApiController extends CI_Controller
     public function gali_disawar_bid_history()
     {
 
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-        $token = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -2676,11 +2621,10 @@ class ApiController extends CI_Controller
     //gali disawar win history
     public function gali_disawar_win_history()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-        $token = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -2743,11 +2687,10 @@ class ApiController extends CI_Controller
     //apk url
     public function apk_url()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-        $token = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token]
         ];
@@ -2774,12 +2717,10 @@ class ApiController extends CI_Controller
     // top 10 recent winners
     public function top_winners()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-
-        $token = $getHeaders['token'];
         $whr_arr  = ['conditions' => ['token' => $token]];
         $user = $this->UsersModel->first($whr_arr);
 
