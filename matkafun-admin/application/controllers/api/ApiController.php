@@ -25,7 +25,7 @@ class ApiController extends CI_Controller
     {
 
         parent::__construct();
-        $this->load->helper(["url", "valid", "extra"]);
+        $this->load->helper(["url", "valid"]);
         $this->load->library(['session']);
 
         $this->load->model([
@@ -1292,15 +1292,6 @@ class ApiController extends CI_Controller
         if (!isset($_REQUEST['points']) || empty($_REQUEST['points'])) {
             return $this->withoutdata_res('Please select points', 400);
         }
-
-        if (!isset($_REQUEST['trans_status']) || empty($_REQUEST['trans_status'])) {
-            return $this->withoutdata_res('Please select trans status', 400);
-        }
-
-        if (!isset($_REQUEST['trans_id']) || empty($_REQUEST['trans_id'])) {
-            return $this->withoutdata_res('Please select a trans id', 400);
-        }
-
         $points = $_REQUEST['points'];
         $trans_status = $_REQUEST['trans_status'];
         $trans_id = $_REQUEST['trans_id'];
