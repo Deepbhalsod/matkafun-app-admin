@@ -202,6 +202,47 @@ class ApiController extends CI_Controller
         return 1234;
     }
 
+    public function getRequestToken()
+    {
+        $getHeaders = apache_request_headers();
+        foreach (['token', 'Token', 'TOKEN'] as $key) {
+            if (isset($getHeaders[$key]) && !empty($getHeaders[$key])) {
+                return $getHeaders[$key];
+            }
+        }
+
+        if (!empty($_SERVER['HTTP_TOKEN'])) {
+            return $_SERVER['HTTP_TOKEN'];
+        }
+
+        if (!empty($_SERVER['REDIRECT_HTTP_TOKEN'])) {
+            return $_SERVER['REDIRECT_HTTP_TOKEN'];
+        }
+
+        if (!empty($_SERVER['HTTP_X_TOKEN'])) {
+            return $_SERVER['HTTP_X_TOKEN'];
+        }
+
+        if (!empty($_SERVER['REDIRECT_HTTP_X_TOKEN'])) {
+            return $_SERVER['REDIRECT_HTTP_X_TOKEN'];
+        }
+
+        if (!empty($_REQUEST['token'])) {
+            return $_REQUEST['token'];
+        }
+
+        if (!empty($_POST['token'])) {
+            return $_POST['token'];
+        }
+
+        if (!empty($_GET['token'])) {
+            return $_GET['token'];
+        }
+
+        log_message('debug', 'No token found in headers or request; headers=' . json_encode($getHeaders) . ', server=' . json_encode(array_intersect_key($_SERVER, array_flip(['HTTP_TOKEN', 'REDIRECT_HTTP_TOKEN', 'HTTP_X_TOKEN', 'REDIRECT_HTTP_X_TOKEN']))));
+        return null;
+    }
+
 
     public function request()
     {
@@ -805,11 +846,10 @@ class ApiController extends CI_Controller
     //user status
     public function user_status()
     {
-        $getHeaders = apache_request_headers();
-        if (!isset($getHeaders['token']) || empty($getHeaders['token'])) {
+        $token = $this->getRequestToken();
+        if (empty($token)) {
             return $this->withoutdata_res('Please select token', 505);
         }
-        $token = $getHeaders['token'];
         $whr_arr  = [
             'conditions' => ['token' => $token],
         ];
