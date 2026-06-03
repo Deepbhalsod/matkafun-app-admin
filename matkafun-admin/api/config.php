@@ -9,7 +9,7 @@ $dbname     = "sql_matkafun_fun";
 
 // ========== ONESIGNAL CONFIG ==========
 $app_id  = "24e340cf-5dbf-40cc-8954-b9ea8e502c56";
-$api_key = "os_v2_app_etrubt25x5amzckuxhvi4ubmkywx4d5aceeuw7nekqfmc7bqpxip6pxfmibknr4ltwtvd2nl5ilirnjtgc6ipa4hgtacb2wy7zsed2a";
+$api_key = "os_v2_app_etrubt25x5amzckuxhvi4ubmkzfe3ud6l3futh5etbxefaygfxbk63jesdn3jkbabr46mgzsmoszxxaggovdwwyhqtqjyvjy3sdhpqy";
 
 // ========== CONNECT ==========
 $conn = new mysqli($servername, $username, $password, $dbname);
