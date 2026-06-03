@@ -5,6 +5,21 @@ $alertMsg    = '';
 $alertType   = '';
 
 // ─── READ STATUS FROM REDIRECT (PRG pattern) ────────────────────
+if (isset($_GET['test_headers'])) {
+    $ch = curl_init("https://httpbin.org/headers");
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json; charset=utf-8',
+        'Authorization: Key ' . ONESIGNAL_REST_API_KEY,
+    ]);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    $response = curl_exec($ch);
+    echo "<pre><h3>httpbin.org Outbound Header Echo Test:</h3>";
+    echo htmlspecialchars($response);
+    echo "</pre>";
+    exit;
+}
+
 // After POST we redirect here with ?status=success&msg=... to avoid
 // re-sending the notification when the user refreshes the page.
 if (isset($_GET['status'])) {
