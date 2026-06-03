@@ -53,7 +53,7 @@ function sendNotification($title, $message, $app_id, $api_key) {
     curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json; charset=utf-8',
-        'Authorization: Basic ' . $api_key,
+        'Authorization: Key ' . $api_key,
     ]);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_POST, TRUE);

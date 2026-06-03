@@ -28,7 +28,7 @@ function sendOneSignalNotification($title, $message, $conn, $type = 'GENERAL') {
     $ch = curl_init(ONESIGNAL_API_URL);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json; charset=utf-8',
-        "Authorization: Basic " . ONESIGNAL_REST_API_KEY
+        "Authorization: Key " . ONESIGNAL_REST_API_KEY
     ]);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
