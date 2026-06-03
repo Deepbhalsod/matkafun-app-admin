@@ -227,7 +227,7 @@ const ONESIGNAL_APP_ID = '32163764-747f-40f1-b39c-48f138f76e2f';
 //    Where to find: OneSignal Dashboard → Settings → Keys & IDs → REST API Key
 //    ⚠️  Keep this secret — anyone with this key can send notifications to all users
 //    ⚠️  Never commit this to GitHub or share publicly
-const ONESIGNAL_REST_API_KEY = 'os_v2_app_gildozdup5apdm44jdytr53of5j4rf4a4x5e4p4sawqaz4ybb7iyiqmlrxluoztklubdhdenufarce7bipppbc5a3hka626bkwg362q';
+const ONESIGNAL_REST_API_KEY = 'os_v2_app_gildozdup5apdm44jdytr53of4rmg4fd4hle6gu6umu4cahiqo4fmyo4c3tz6kkq5pju3no54i7sdbny6wr3aljq5b6dyqdc47dkkeq';
 
 // 📌 ONESIGNAL_API_URL
 //    The OneSignal REST API endpoint for sending push notifications
