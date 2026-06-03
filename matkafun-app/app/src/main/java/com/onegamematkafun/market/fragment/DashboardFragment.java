@@ -51,7 +51,7 @@ import java.util.TimerTask;
 public class DashboardFragment extends Fragment {
 
     public static MaterialTextView marqueText, user_name;
-    private View whatsappBtn, callBtn, user_profile;
+    private View whatsappBtn, telegramBtn, user_profile;
     ViewPager mViewPager;
     ViewPagerAdapter mViewPagerAdapter;
     static FrameLayout mViewPagFrame;
@@ -72,7 +72,7 @@ public class DashboardFragment extends Fragment {
     long PERIOD_MS = 2000;
     private String[] mImages;
 
-    static TextView whatsppTv, callTv;
+    static TextView whatsppTv, telegramTv;
     private static RelativeLayout dpboss_rl;
     private RelativeLayout telegram_item;
     private static RelativeLayout addpoints_item;
@@ -102,8 +102,8 @@ public class DashboardFragment extends Fragment {
         String whatsappNum = SharPrefClass.getContactObject(context, SharPrefClass.KEY_WHATSAP_NUMBER);
         whatsppTv.setText(getSafePhone(whatsappNum));
 
-        String callNum = SharPrefClass.getContactObject(context, SharPrefClass.KEY_PHONE_NUMBER1);
-        callTv.setText(getSafePhone(callNum));
+        String telegramLink = SharPrefClass.getContactObject(context, SharPrefClass.KEY_TELEGRAM_LINK);
+        telegramTv.setText("Telegram");
 
         whatsapp_item.setOnClickListener(v -> {
             DashboardActivity.viewPager.setCurrentItem(1, true);
@@ -173,14 +173,11 @@ public class DashboardFragment extends Fragment {
             startActivity(i);
         });
 
-        callBtn.setOnClickListener(v -> {
-            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{Manifest.permission.CALL_PHONE}, 100);
-            } else {
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:" +SharPrefClass.getContactObject(context, SharPrefClass.KEY_PHONE_NUMBER1)));
-                startActivity(callIntent);
+        telegramBtn.setOnClickListener(v -> {
+            String tLink = SharPrefClass.getContactObject(context, SharPrefClass.KEY_TELEGRAM_LINK);
+            if (tLink != null && !tLink.isEmpty()) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(tLink));
+                startActivity(i);
             }
         });
 
@@ -293,7 +290,7 @@ public class DashboardFragment extends Fragment {
         mViewPager = view.findViewById(R.id.viewPager);
         mViewPagFrame = view.findViewById(R.id.viewPagerFrame);
         recyView = view.findViewById(R.id.recyclerView);
-        callBtn = view.findViewById(R.id.callBtn);
+        telegramBtn = view.findViewById(R.id.telegramBtn);
         marqueText = view.findViewById(R.id.text_marque);
         mProgressBar = view.findViewById(R.id.progressBar);
         stripLayout = view.findViewById(R.id.stripLayout);
@@ -301,7 +298,7 @@ public class DashboardFragment extends Fragment {
         dpboss_rl = view.findViewById(R.id.dpboss_rl);
         whatsapp_item= view.findViewById(R.id.whatsapp_item);
         whatsppTv= view.findViewById(R.id.whatsapp_contact_text);
-        callTv = view.findViewById(R.id.call_tv);
+        telegramTv = view.findViewById(R.id.telegram_tv);
 
         whatsappBtn = view.findViewById(R.id.whatsappBtn);
         user_profile = null; // No profile button on dashboard currently

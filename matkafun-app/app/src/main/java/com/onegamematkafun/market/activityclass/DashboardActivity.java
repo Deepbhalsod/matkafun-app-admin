@@ -1037,7 +1037,7 @@ private void checkUserStatusMethod() {
                     if (dataApp.getStatus().equalsIgnoreCase(getString(R.string.success))) {
                         SharPrefClass.setPrefrenceStrngData(DashboardActivity.this, SharPrefClass.KEY_MAR_TXT, dataApp.getData().getBanner_marquee());
                         SharPrefClass.setContactUsInfo(DashboardActivity.this, SharPrefClass.KEY_PHONE_NUMBER1, "+91" + dataApp.getData().getContact_details().getMobile_no_1());
-                        SharPrefClass.setContactUsInfo(DashboardActivity.this, SharPrefClass.KEY_PHONE_NUMBER2,   dataApp.getData().getContact_details().getTelegram_channel_link());
+                        SharPrefClass.setContactUsInfo(DashboardActivity.this, SharPrefClass.KEY_TELEGRAM_LINK,   dataApp.getData().getContact_details().getTelegram_channel_link());
                         SharPrefClass.setContactUsInfo(DashboardActivity.this, SharPrefClass.KEY_WHATSAP_NUMBER, "+91" + dataApp.getData().getContact_details().getWhatsapp_no());
                         SharPrefClass.setContactUsInfo(DashboardActivity.this, SharPrefClass.KEY_REACH_US_EMAIL, dataApp.getData().getContact_details().getEmail_1());
                         SharPrefClass.setPosterImages(DashboardActivity.this, SharPrefClass.KEY_POSTER_IMAGES1, dataApp.getData().getBanner_image().getBanner_img_1());

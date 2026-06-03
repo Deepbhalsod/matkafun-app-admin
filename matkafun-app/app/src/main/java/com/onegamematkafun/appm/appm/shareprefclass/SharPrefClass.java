@@ -47,6 +47,7 @@ public class SharPrefClass {
     public static String KEY_MAX_ADD_AMOUNT_COINS = "maxAddamountPoints";
     public static String KEY_FIREBSE_ALLOW = "firebaseAllow";
     public static String KEY_DEVELOPER_MODE = "developerMode";
+    public static String KEY_TELEGRAM_LINK = "telegramLink";
 
     public static SharedPreferences getshrprefMthd(Context context){
         return context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);

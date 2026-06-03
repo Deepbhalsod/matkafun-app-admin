@@ -222,7 +222,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     if (dataApp.getStatus().equalsIgnoreCase(getString(R.string.success))) {
                         SharPrefClass.setPrefrenceStrngData(activity, SharPrefClass.KEY_MAR_TXT, dataApp.getData().getBanner_marquee());
                         SharPrefClass.setContactUsInfo(activity, SharPrefClass.KEY_PHONE_NUMBER1, "+91" + dataApp.getData().getContact_details().getMobile_no_1());
-                        SharPrefClass.setContactUsInfo(activity, SharPrefClass.KEY_PHONE_NUMBER2,   dataApp.getData().getContact_details().getTelegram_channel_link());
+                        SharPrefClass.setContactUsInfo(activity, SharPrefClass.KEY_TELEGRAM_LINK,   dataApp.getData().getContact_details().getTelegram_channel_link());
                         SharPrefClass.setContactUsInfo(activity, SharPrefClass.KEY_WHATSAP_NUMBER, "+91" + dataApp.getData().getContact_details().getWhatsapp_no());
                         SharPrefClass.setContactUsInfo(activity, SharPrefClass.KEY_REACH_US_EMAIL, dataApp.getData().getContact_details().getEmail_1());
                         SharPrefClass.setPosterImages(activity, SharPrefClass.KEY_POSTER_IMAGES1, dataApp.getData().getBanner_image().getBanner_img_1());

@@ -23,11 +23,315 @@
             android:background="@color/colorb"/>
     </FrameLayout>
 
-    <!-- Main Unified Scroll Container -->
+    <!-- ======================== STICKY HEADER (does not scroll) ======================== -->
+    <LinearLayout
+        android:id="@+id/sticky_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewPagerFrame"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:elevation="2dp">
+
+        <!-- 1. Marquee Container -->
+        <FrameLayout
+            android:id="@+id/stripLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            android:visibility="visible"
+            android:background="@drawable/bg_marquee"
+            android:layout_marginTop="6dp"
+            android:layout_marginHorizontal="12dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_marque"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font2"
+                android:layout_gravity="center"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:visibility="visible"/>
+        </FrameLayout>
+
+        <!-- 2. Main Quick Buttons Grid (Add Money, Withdraw, Starline, Jackpot) -->
+        <LinearLayout
+            android:id="@+id/aaa"
+            android:orientation="vertical"
+            android:layout_marginTop="6dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/addpoints_item"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_pill_purple"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp">
+
+                    <ImageView
+                        android:id="@+id/a3_add"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/plus"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@id/a3_add"
+                        android:fontFamily="@font/font2"
+                        android:text="@string/add_money"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/withdraw_op"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_pill_purple"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp">
+
+                    <ImageView
+                        android:id="@+id/a3op_with"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_wallet"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="6dp"
+                        android:layout_toEndOf="@id/a3op_with"
+                        android:fontFamily="@font/font2"
+                        android:text="@string/withdraw"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:id="@+id/whatsapp_item"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_pill_red"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="8dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/whatsapp_play"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/font2"
+                        android:text="@string/fun_starline"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        app:autoSizeTextType="uniform"
+                        app:autoSizeMinTextSize="9sp"
+                        app:autoSizeMaxTextSize="13sp"
+                        app:autoSizeStepGranularity="1sp" />
+
+                    <ImageView
+                        android:id="@+id/whatsapp_play"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/play_icon"
+                        app:tint="@color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/telegram_item"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:background="@drawable/button_pill_purple"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="8dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@id/telegram_play"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/font2"
+                        android:text="@string/fun_jackpot"
+                        android:textColor="@color/white"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        app:autoSizeTextType="uniform"
+                        app:autoSizeMinTextSize="9sp"
+                        app:autoSizeMaxTextSize="13sp"
+                        app:autoSizeStepGranularity="1sp" />
+
+                    <ImageView
+                        android:id="@+id/telegram_play"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/play_icon"
+                        app:tint="@color/white" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- Hidden legacy containers to support old code bindings -->
+            <RelativeLayout
+                android:id="@+id/starline_item"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/galli_item"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- 3. WhatsApp and Call buttons (Contact Buttons) -->
+        <RelativeLayout
+            android:visibility="visible"
+            android:id="@+id/phoneLyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginHorizontal="10dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/whatsappBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="0dp"
+                    app:cardMaxElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_whatsappicon" />
+
+                        <TextView
+                            android:id="@+id/whatsapp_contact_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:textColor="#FF3B30"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:text="9680012532" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/telegramBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="18dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="0dp"
+                    app:cardMaxElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/telegram_logo" />
+
+                        <TextView
+                            android:id="@+id/telegram_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:textColor="#0088CC"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:text="Telegram" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <!-- ======================== END STICKY HEADER ======================== -->
+
+    <!-- 4. Scrollable Content: Tournament RecyclerView + Recent Winners -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/viewPagerFrame"
+        android:layout_below="@id/sticky_header"
         android:fillViewport="true">
 
         <LinearLayout
@@ -35,298 +339,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- 1. Marquee Container -->
-            <FrameLayout
-                android:id="@+id/stripLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="1dp"
-                android:visibility="visible"
-                android:background="@drawable/bg_marquee"
-                android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="12dp">
-                
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/text_marque"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/font2"
-                    android:layout_gravity="center"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:gravity="center"
-                    android:padding="12dp"
-                    android:visibility="visible"/>
-            </FrameLayout>
-
-            <!-- 2. Main Quick Buttons Grid (Add Money, Withdraw, Starline, Jackpot) -->
-            <LinearLayout
-                android:id="@+id/aaa"
-                android:orientation="vertical"
-                android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="12dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <RelativeLayout
-                        android:id="@+id/addpoints_item"
-                        android:layout_width="0dp"
-                        android:layout_height="44dp"
-                        android:layout_margin="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_pill_purple"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp">
-
-                        <ImageView
-                            android:id="@+id/a3_add"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/plus"
-                            app:tint="@color/white" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="8dp"
-                            android:layout_toEndOf="@id/a3_add"
-                            android:fontFamily="@font/font2"
-                            android:text="@string/add_money"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/withdraw_op"
-                        android:layout_width="0dp"
-                        android:layout_height="44dp"
-                        android:layout_margin="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_pill_purple"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp">
-
-                        <ImageView
-                            android:id="@+id/a3op_with"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_wallet"
-                            app:tint="@color/white" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="8dp"
-                            android:layout_toEndOf="@id/a3op_with"
-                            android:fontFamily="@font/font2"
-                            android:text="@string/withdraw"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <RelativeLayout
-                        android:id="@+id/whatsapp_item"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="4dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_pill_red"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="8dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_toStartOf="@id/whatsapp_play"
-                            android:layout_marginEnd="8dp"
-                            android:fontFamily="@font/font2"
-                            android:text="@string/fun_starline"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:singleLine="true"
-                            android:maxLines="1"
-                            app:autoSizeTextType="uniform"
-                            app:autoSizeMinTextSize="10sp"
-                            app:autoSizeMaxTextSize="14sp"
-                            app:autoSizeStepGranularity="1sp" />
-
-                        <ImageView
-                            android:id="@+id/whatsapp_play"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/play_icon"
-                            app:tint="@color/white" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/telegram_item"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="4dp"
-                        android:layout_weight="1"
-                        android:visibility="visible"
-                        android:background="@drawable/button_pill_purple"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="8dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_toStartOf="@id/telegram_play"
-                            android:layout_marginEnd="8dp"
-                            android:fontFamily="@font/font2"
-                            android:text="@string/fun_jackpot"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:singleLine="true"
-                            android:maxLines="1"
-                            app:autoSizeTextType="uniform"
-                            app:autoSizeMinTextSize="10sp"
-                            app:autoSizeMaxTextSize="14sp"
-                            app:autoSizeStepGranularity="1sp" />
-
-                        <ImageView
-                            android:id="@+id/telegram_play"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/play_icon"
-                            app:tint="@color/white" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <!-- Hidden legacy containers to support old code bindings -->
-                <RelativeLayout
-                    android:id="@+id/starline_item"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:visibility="gone" />
-
-                <RelativeLayout
-                    android:id="@+id/galli_item"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-            <!-- 3. WhatsApp and Call buttons (Transparent and Borderless) -->
-            <RelativeLayout
-                android:visibility="visible"
-                android:id="@+id/phoneLyt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="10dp"
-                android:gravity="center_vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/whatsappBtn"
-                        android:layout_width="0dp"
-                        android:layout_height="56dp"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
-                        app:cardCornerRadius="18dp"
-                        app:cardBackgroundColor="@android:color/transparent"
-                        app:cardElevation="0dp"
-                        app:cardMaxElevation="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:paddingStart="14dp"
-                            android:paddingEnd="14dp">
-
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/ic_whatsappicon" />
-
-                            <TextView
-                                android:id="@+id/whatsapp_contact_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:textColor="#FF3B30"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="9680012532" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/callBtn"
-                        android:layout_width="0dp"
-                        android:layout_height="56dp"
-                        android:layout_weight="1"
-                        app:cardCornerRadius="18dp"
-                        app:cardBackgroundColor="@android:color/transparent"
-                        app:cardElevation="0dp"
-                        app:cardMaxElevation="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:paddingStart="14dp"
-                            android:paddingEnd="14dp">
-
-                            <ImageView
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/ic_call_wifi_icon_01"
-                                app:tint="#25D366" />
-
-                            <TextView
-                                android:id="@+id/call_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:textColor="#FF3B30"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="9680012532" />
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
-                </LinearLayout>
-            </RelativeLayout>
-
-            <!-- 4. Main Lists Container -->
+            <!-- Main Lists Container -->
             <LinearLayout
                 android:layout_marginHorizontal="8dp"
                 android:layout_width="match_parent"
@@ -355,7 +368,7 @@
                 <!-- Tournaments Recycler View with nested scrolling disabled -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:nestedScrollingEnabled="false" />
@@ -417,7 +430,7 @@
                                 app:cardCornerRadius="12dp"
                                 app:strokeColor="#303B6D"
                                 app:strokeWidth="1dp">
-                                
+
                                 <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -425,13 +438,13 @@
                                     android:gravity="center_vertical"
                                     android:paddingHorizontal="8dp"
                                     android:paddingVertical="4dp">
-                                    
+
                                     <View
                                         android:layout_width="6dp"
                                         android:layout_height="6dp"
                                         android:background="@drawable/circle_blue"
                                         android:backgroundTint="#4E84F3"/>
-                                        
+
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
