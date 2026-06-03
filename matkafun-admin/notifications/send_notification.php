@@ -6,16 +6,44 @@ $alertType   = '';
 
 // ─── READ STATUS FROM REDIRECT (PRG pattern) ────────────────────
 if (isset($_GET['test_headers'])) {
-    $ch = curl_init("https://httpbin.org/headers");
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    $fields = [
+        'app_id' => ONESIGNAL_APP_ID,
+        'included_segments' => ['All'],
+        'headings' => ['en' => 'Test Diagnostic Notification'],
+        'contents' => ['en' => 'This is a diagnostic notification sent from VPS.'],
+    ];
+
+    // Test 1: Basic
+    $ch1 = curl_init("https://onesignal.com/api/v1/notifications");
+    curl_setopt($ch1, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json; charset=utf-8',
+        'Authorization: Basic ' . ONESIGNAL_REST_API_KEY,
+    ]);
+    curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch1, CURLOPT_POST, true);
+    curl_setopt($ch1, CURLOPT_POSTFIELDS, json_encode($fields));
+    curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
+    $responseBasic = curl_exec($ch1);
+    curl_close($ch1);
+
+    // Test 2: Key
+    $ch2 = curl_init("https://onesignal.com/api/v1/notifications");
+    curl_setopt($ch2, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json; charset=utf-8',
         'Authorization: Key ' . ONESIGNAL_REST_API_KEY,
     ]);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    $response = curl_exec($ch);
-    echo "<pre><h3>httpbin.org Outbound Header Echo Test:</h3>";
-    echo htmlspecialchars($response);
+    curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch2, CURLOPT_POST, true);
+    curl_setopt($ch2, CURLOPT_POSTFIELDS, json_encode($fields));
+    curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
+    $responseKey = curl_exec($ch2);
+    curl_close($ch2);
+
+    echo "<pre><h3>OneSignal Direct API Tests from VPS:</h3>";
+    echo "<b>App ID:</b> " . ONESIGNAL_APP_ID . "\n";
+    echo "<b>Key Length:</b> " . strlen(ONESIGNAL_REST_API_KEY) . "\n\n";
+    echo "<b>Test 1 (Basic Scheme) Response:</b>\n" . htmlspecialchars($responseBasic) . "\n\n";
+    echo "<b>Test 2 (Key Scheme) Response:</b>\n" . htmlspecialchars($responseKey) . "\n";
     echo "</pre>";
     exit;
 }
