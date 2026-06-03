@@ -80,8 +80,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errDetail = '';
                 if (!empty($res['errors'])) $errDetail = implode(', ', (array)$res['errors']);
                 if ($curlErr)              $errDetail = $curlErr;
+                
+                // Diagnostic block for VPS differences
+                $keyLen = strlen(ONESIGNAL_REST_API_KEY);
+                $maskedKey = substr(ONESIGNAL_REST_API_KEY, 0, 15) . '...' . substr(ONESIGNAL_REST_API_KEY, -5);
+                $debugInfo = sprintf(
+                    "<br><small style='display:block;margin-top:8px;font-size:11px;opacity:0.8;'><b>VPS Debug Info:</b><br>" .
+                    "PHP: %s | Curl: %s | SSL: %s<br>" .
+                    "URL: %s<br>" .
+                    "Auth Sent: Key %s (Length: %d)<br>" .
+                    "Raw Response: %s</small>",
+                    PHP_VERSION,
+                    curl_version()['version'],
+                    curl_version()['ssl_version'],
+                    ONESIGNAL_API_URL,
+                    $maskedKey,
+                    $keyLen,
+                    htmlspecialchars($response)
+                );
+                
                 $rType = 'error';
-                $rMsg  = '❌ OneSignal Error: ' . ($errDetail ?: 'Unknown error. Check API key.');
+                $rMsg  = '❌ OneSignal Error: ' . ($errDetail ?: 'Unknown error. Check API key.') . $debugInfo;
             }
         }
     }
