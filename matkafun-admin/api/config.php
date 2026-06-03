@@ -8,8 +8,8 @@ $password   = "MatkaFun@2025";
 $dbname     = "sql_matkafun_fun";
 
 // ========== ONESIGNAL CONFIG ==========
-$app_id  = "24e340cf-5dbf-40cc-8954-b9ea8e502c56";
-$api_key = "os_v2_app_etrubt25x5amzckuxhvi4ubmkzfe3ud6l3futh5etbxefaygfxbk63jesdn3jkbabr46mgzsmoszxxaggovdwwyhqtqjyvjy3sdhpqy";
+$app_id  = "073624c4-92c2-4807-80d7-4c1744fa381f";
+$api_key = "os_v2_app_a43cjresyjeapagxjqluj6ryd6apkuz42sher5nnau5sgxtarm4lozq7qtw7pbmsx3ca4f7k2wy3dayg6tklibjoh4oz5qotw2ixzey";
 
 // ========== CONNECT ==========
 $conn = new mysqli($servername, $username, $password, $dbname);

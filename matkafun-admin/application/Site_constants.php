@@ -221,13 +221,13 @@ const FCM_SERVER_KEY = 'AAAASSNttSQ:APA91bHvSEgGCYDTAJiQTiBCD0O9haqYK5BmHAHalmw-
 //    Where to find: OneSignal Dashboard → Your App → Settings → Keys & IDs
 //    Must match the App ID initialized in Android app (ApplicationClass.java)
 //    Current App: Deep's Org App
-const ONESIGNAL_APP_ID = '24e340cf-5dbf-40cc-8954-b9ea8e502c56';
+const ONESIGNAL_APP_ID = '073624c4-92c2-4807-80d7-4c1744fa381f';
 
 // 📌 ONESIGNAL_REST_API_KEY
 //    Where to find: OneSignal Dashboard → Settings → Keys & IDs → REST API Key
 //    ⚠️  Keep this secret — anyone with this key can send notifications to all users
 //    ⚠️  Never commit this to GitHub or share publicly
-const ONESIGNAL_REST_API_KEY = 'os_v2_app_etrubt25x5amzckuxhvi4ubmkzfe3ud6l3futh5etbxefaygfxbk63jesdn3jkbabr46mgzsmoszxxaggovdwwyhqtqjyvjy3sdhpqy';
+const ONESIGNAL_REST_API_KEY = 'os_v2_app_a43cjresyjeapagxjqluj6ryd6apkuz42sher5nnau5sgxtarm4lozq7qtw7pbmsx3ca4f7k2wy3dayg6tklibjoh4oz5qotw2ixzey';
 
 // 📌 ONESIGNAL_API_URL
 //    The OneSignal REST API endpoint for sending push notifications
