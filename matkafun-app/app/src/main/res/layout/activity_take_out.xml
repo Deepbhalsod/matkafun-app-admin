@@ -272,6 +272,36 @@
                     android:textColor="@color/black"
                     tools:ignore="UsingOnClickInXml" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="Safe &amp; Transparent Withdrawals\nAapka payment 100% surakshit hai. Apne withdrawal request ko real-time mein track karne aur sabhi successful transactions ke live screenshots (proofs) dekhne ke liye kripya hamare official Telegram channel par jayein."
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:fontFamily="@font/font3" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/buttonw"
+                    android:backgroundTint="#0088cc"
+                    android:gravity="center"
+                    android:onClick="openTelegram"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="10dp"
+                    android:text="🚀 CLICK HERE TO JOIN TELEGRAM CHANNEL"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/font2"
+                    tools:ignore="UsingOnClickInXml" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/withdrawtimetxt"
                     android:layout_width="match_parent"

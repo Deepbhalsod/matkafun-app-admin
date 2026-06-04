@@ -72,7 +72,7 @@ public class AddCoinActivity extends AppCompatActivity implements PaymentStatusL
         confiToolbar();
 
         // Add Click Listeners for Amount Buttons
-        findViewById(R.id.btn100).setOnClickListener(v -> setAmount("100"));
+        findViewById(R.id.btn300).setOnClickListener(v -> setAmount("300"));
         findViewById(R.id.btn500).setOnClickListener(v -> setAmount("500"));
         findViewById(R.id.btn1000).setOnClickListener(v -> setAmount("1000"));
         findViewById(R.id.btn2000).setOnClickListener(v -> setAmount("2000"));

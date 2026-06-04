@@ -473,4 +473,14 @@ private void intVariables() {
 
         dialog.show();
     }
+
+    public void openTelegram(View view) {
+        String tLink = SharPrefClass.getContactObject(this, SharPrefClass.KEY_TELEGRAM_LINK);
+        if (tLink != null && !tLink.isEmpty()) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, android.net.Uri.parse(tLink));
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Telegram link not found", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
