@@ -1847,7 +1847,7 @@ class ApiController extends CI_Controller
         $end_date = $date . " 23:59:59";
 
         foreach ($gameList as $key => $game) {
-            $gameList[$key]['chart_url'] = Main_Chart . urlencode($game['name']);
+            $gameList[$key]['chart_url'] = Main_Chart . str_replace(' ', '_', $game['name']);
             $gameList[$key]['play'] = false;
             $gameList[$key]['open'] = false;
             $gameList[$key]['market_open'] = true;
