@@ -2,7 +2,7 @@
 
 /** Error Message
  * @author Krishna Gujjjar <krishnagujjjar@gmail.com> */
-class errorMsg
+trait errorMsg
 {
 	/** `Show Message Function`
 	 *

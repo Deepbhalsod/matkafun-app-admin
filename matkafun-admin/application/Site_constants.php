@@ -34,9 +34,9 @@ defined('SESS_PATH') or define('SESS_PATH', APPPATH . '../temp/');
 
 
 define("DB_HOST", 'localhost');
-define("DB_USER", 'sql_matkafun_fun');
+define("DB_USER", 'u951306038_matkafun');
 define("DB_PASS", "MatkaFun@2025");
-define("DB_NAME", 'sql_matkafun_fun');
+define("DB_NAME", 'u951306038_matkafun');
 
 // define("DB_USER", 'u472706178_pune777');
 // define("DB_PASS", "Pune777@2025");

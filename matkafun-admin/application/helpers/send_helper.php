@@ -78,7 +78,7 @@ function sendResultNotificationOneSignal($title, $message, $type = 'GENERAL')
     $ch = curl_init(ONESIGNAL_API_URL);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json; charset=utf-8',
-        'Authorization: Key ' . $api_key,
+        'Authorization: Basic ' . $api_key,
     ]);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
