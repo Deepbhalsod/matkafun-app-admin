@@ -179,7 +179,6 @@
                 </div>
                 <hr>
 
-                <!--
                 <div class="col-md-6">
                     <h4>Others Settings</h4>
                     <form class="p-3" method="POST" enctype="multipart/form-data">
@@ -207,7 +206,6 @@
                             </div>
                     </form>
                 </div>
-                -->
 
             </div>
         </div>
