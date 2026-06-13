@@ -78,7 +78,7 @@ public class WelcomeActivity extends AppCompatActivity {
         startService(serviceIntent);
 
         // Check for updates
-        new UpdateChecker(this, "https://matkafun.fun/version.json", new UpdateChecker.OnUpdateFinishedListener() {
+        new UpdateChecker(this, "https://matkafun.lol/version.json", new UpdateChecker.OnUpdateFinishedListener() {
             @Override
             public void onContinue() {
                 // Check if we should redirect to WebView (Consolidated from LoadingActivity)

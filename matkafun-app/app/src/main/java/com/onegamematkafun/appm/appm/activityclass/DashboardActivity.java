@@ -220,7 +220,7 @@ public class DashboardActivity extends AppCompatActivity {
     private void fetchNotificationCount() {
         new Thread(() -> {
             try {
-                java.net.URL url = new java.net.URL("https://matkafun.fun/get_notifications.php");
+                java.net.URL url = new java.net.URL("https://matkafun.lol/get_notifications.php");
                 java.net.HttpURLConnection conn = (java.net.HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setConnectTimeout(8000);
@@ -391,7 +391,7 @@ public class DashboardActivity extends AppCompatActivity {
                     break;
                 case R.id.shareWithFriends:
                     String shareMessage = "Download " + getString(R.string.app_name) + " for the most reliable results and fast payments! \ud83c\udfc6\ud83d\udcb0\n" +
-                            "Join us now: https://matkafun.fun";
+                            "Join us now: https://matkafun.lol";
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
                     sendIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
